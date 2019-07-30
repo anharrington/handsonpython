@@ -1,0 +1,32 @@
+Arg,
+working on stuff for doing all from Windows.  Royal pain:
+
+You need mercurial (32 bit, preferably with admin access but there is another version)  It installed easily on my windows machine.
+Python 2.7.2
+*and*
+Python 3.2.2
+setup tools:
+http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11.win32-py2.7.exe#md5=57e1e64f6b7c7f1d2eddfc9746bbaf20
+!!!! Then you need to change your path (control panel system advanced environment ... edit path variable (yours or system) adding 
+;c:\python27\scripts;
+Mercurial seems to be added automatically, but not the python script directory for both easy_install and the sphinx-build program.
+
+Then you can run from a new cmd window:
+easy_install -U Sphinx
+
+The lab for our C# class is OK to get you going on Mercurial:  
+http://anh.cs.luc.edu/170/notes/CSharpHtml/lab-versioncontrol.html
+and obviously there are online docs.
+
+You should have an invitation.  It occured to me that only the owner needs a university address, so I could add you at your regular address.
+
+This did get me to see how to fix a problem I had in class with a Windows machine!
+
+So the most important directory is rstP, with all the source code.  devel contains makehtml.cmd.  You see the web page after a build at
+build/html/index.html
+My example code is in examples, and some of it is included from thee into the web pages (literalinclude).  rstP\usefulBits has some of my first notes on RST and Sphinx.
+
+It is not essential to me or probably you that you generate anything but html for the Python tutorial.  To get pdf there is an enormous tex installation needed.
+The only script you need then is to ne in a consile windoiw in the devel directory, running makehtml or makehtmlc.  The latter kills all the old buil files.  Tisis important if the automatic indexing needs to chage or included source code.  Individual pages are only remade it the corresponding rst file changes, and the html file can change because of outside resource files changing.  Then the makehtmlc is useful.
+
+I'm sure this could be explained better, but I need to move on.  Call or email.

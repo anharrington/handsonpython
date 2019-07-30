@@ -1,0 +1,12 @@
+#! /bin/bash
+
+cd ~/handsonpython/examples
+rm www/*.txt
+rm -R __pycache__
+rm -R www/__pycache__
+echo Removed .txt files in examples/www
+
+rsync -avh   * ../wmirror/python/hands-on/3.1/examples/
+cd ~/wmirror/python/hands-on/3.1/examples/
+zip ../examples.zip * www/* -x www/tempBrowseLocal.html
+

@@ -1,0 +1,27 @@
+.. literalinclude:: examples/.py
+
+:menuselection:`
+
+:guilabel:`
+
+:kbd:`
+
+.. warning::
+   text
+   
+.. index::
+   single: 
+   double: ;
+   triple:  ;  ;  DO NOT USE! AWKWARD
+
+inline ok *.
+      bad .* `*  *`  ``s
+
+? glossary
+.. glossary::
+   :sorted:
+
+   name
+      explanation
+      
+:term: in text

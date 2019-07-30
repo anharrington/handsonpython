@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.13.1: http://docutils.sourceforge.net/" />
+<title>Some Special Current Windows Instructions</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id$
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="some-special-current-windows-instructions">
+<h1 class="title">Some Special Current Windows Instructions</h1>
+
+<p>I have checked this on Windows 10 and Windows 7.</p>
+<p><em>This document supersedes any conflicting instructions in the tutorial itself.</em>
+As versions of Python and operating systems have changed, some old usage instructions get out
+date, and it is easier to maintain all such changes in one focused document.</p>
+<div class="section" id="versions">
+<h1>Versions</h1>
+<p>I will use Python 3.7+ to mean the current version of Python, with version number at least
+3.7.3.  Make sure you have the latest recommended version installed from <a class="reference external" href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>.
+Download the Windows version.
+<em>Read this section before doing any installation.</em>  In particular note paragraph below with italics in it.</p>
+<p>If the only option is to save it, agree, and find it in your download folder and double click to execute it.  If you have an option to immediately run on download, you can choose that.</p>
+<p>You are likely to get a security message before running.  Click Run.</p>
+<p>Pay attention:  <em>before clicking on Install Now</em>, note if there are check-boxes at the bottom of a window you see.  Make sure <em>both</em> are checked, about the Python Launcher AND to add Python to environment variables.</p>
+<p>The final screen that you reach in the installation
+links to more advanced references than we will want in this course, so probably skip them for now.</p>
+<p>Python now behaves differently if you installed a previous version before (like me).  I could have missed something for someone installing Python for the first time.  Feel free for me to watch you while you share your screen in Zoom.</p>
+<p>If you install Python <em>without</em> putting a check mark on Add Python to environment variables, then you can go back and fix it.  This is important for Ch 4:</p>
+<ol class="arabic">
+<li><p class="first">Run the Python installation script again.  Since python is already there it looks different when it starts -
+the first option is modify; click on that.</p>
+</li>
+<li><p class="first">Just click Next on the second screen</p>
+</li>
+<li><p class="first">On the following screen is where you make a change:  Click to put a checkmark in front of the line saying:</p>
+<blockquote>
+<p>Add Python to environment variables.</p>
+</blockquote>
+<p>Then click next/continue/finish - whatever to just advance to the end.</p>
+</li>
+</ol>
+<p>Now for section 4.4, when you double click on startServer.cmd in the www folder, you should see a window come up and stay, saying that the local server is started.</p>
+</div>
+<div class="section" id="your-login-id">
+<h1>Your Login ID</h1>
+<p>The normal place for you to have my examples folder is under your home folder,
+which has the same name as your Login ID. If you are just creating a login ID,
+it will save some hassle in Chapter 4, if your login ID does
+<em>not have a space in it</em>.
+&quot;Andy&quot; or &quot;anh&quot; or AndyHarrington&quot; would be fine for me, but</p>
+<blockquote>
+&quot;Andy Harrington&quot;</blockquote>
+<p>would bomb the server in Chapter 4.</p>
+<div class="section" id="if-you-have-a-blank-in-your-login-id">
+<span id="blank-in-id"></span><h2>If You Have a Blank in your Login ID</h2>
+<p>The local server program central to chapter 4 bombs with
+folder paths with a blank in the name.</p>
+<p>If you have a blank in your Login ID, it is not so easy to change.
+Instead make a folder outside of your home folder:</p>
+<ol class="arabic simple">
+<li>In the File Explorer go to This PC or Computer and select C: drive.</li>
+<li>Create a new folder and give it a name without blanks, like comp150.
+I suggest that you move my examples folder, or just the sub-folder
+www so it is under your new folder.  For Chapter 4
+test my examples and add your work there.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="folder-for-my-examples">
+<span id="examples-folder"></span><h1>Folder For My Examples</h1>
+<p>Wherever you plan to unzip my Python examples folder from
+<a class="reference external" href="http://anh.cs.luc.edu/python/hands-on/3.1/examples.zip">http://anh.cs.luc.edu/python/hands-on/3.1/examples.zip</a>
+you need to make sure that
+my www folder, and any other folder where you put later .cgi files
+does not have a blank in its name,
+<em>or any folder in which it is a sub-folder</em>.
+If you have a &quot;comp 150&quot; folder, you might rename it &quot;comp150&quot;.</p>
+</div>
+<div class="section" id="running-vs-editing">
+<h1>Running VS. Editing</h1>
+<p>Python files can be either run or opened for editing.</p>
+<div class="section" id="editing-by-default">
+<span id="edit-by-default"></span><h2>Editing by Default</h2>
+<p>You will be working mostly with files ending in .py -- Python source files.
+Most of the time you will be editing them and running them in IDLE, so the best
+default behavior when opening a file with extension .py is to have it open in
+Idle 3.7+.</p>
+<p>To open a python file from the File Explorer window with Idle</p>
+<ul class="simple">
+<li>You may be able to double click on the file in Explorer (or that may execute the program,
+and then likely have its window immediately disappear)</li>
+<li>If that is not set right, right click on the file,
+select Edit with Idle, and click on the sub-menu for Idle that opens.</li>
+</ul>
+<p>Idle can also be opened by going to All Programs with the Windows Start menu,
+opening Python 3.7+, and selecting Idle.
+This is OK if you just want to play with the Python shell window.
+If you want to open or particularly if you want to save a file
+there is the <em>major</em> disadvantage of the current folder
+being the Python system folder.
+<em>Saving a file with the wrong name there can totally screw up Python</em>
+(and has - and has been awful to debug).</p>
+<p>For earlier versions of Python on Windows (3.4), the tutorial still refers to a shortcut
+for opening Idle.  Such shortcuts do not work in 3.5 or 3.6.
+Ignore the file and any description of it, and use the methods above to open a Python file.</p>
+</div>
+</div>
+<div class="section" id="inside-idle">
+<h1>Inside IDLE</h1>
+<div class="section" id="opening-creating-files-from-inside-idle">
+<h2>Opening/Creating Files from Inside Idle</h2>
+<p>You may select Open in the File menu <em>inside</em> Idle, either with the Shell window
+or a file editing window as the active window.  The folder that it expects the file
+to reside in depends on the window you started from:</p>
+<ul class="simple">
+<li>If your current window is a file editing window, the folder that you see
+will when you go to open a file
+is the same folder as the current file.</li>
+<li>If your current window is the Python Shell window, and you opened it from the
+Start Menu as discussed above, then be very careful!  The associated folder is the Python
+system folder, and you can get really mess things up trying to save a file there!
+Be sure to change to a folder you control.</li>
+</ul>
+<p>Behavior is similar if you go to the File menu inside Idle to create a totally New
+file:  when you go to save it later, the folder you will see will be selected just as when you
+opened a file above.</p>
+</div>
+<div class="section" id="saving-files">
+<h2>Saving Files</h2>
+<p>If you have modified a file and want to save it under a new name, make sure
+the file is in the active window (you are not in the shell window), go to
+the File menu and Save. It is easiest if
+you save all files in the same folder: my examples folder (except in Chapter 4).</p>
+</div>
+<div class="section" id="running-program-files">
+<h2>Running Program Files</h2>
+<p>Make the Edit window for the file you want active by clicking in its window,
+then go to the Run
+menu and select Run Module. Note the F5 shortcut key.</p>
+</div>
+</div>
+<div class="section" id="chapter-4-cgi-instructions">
+<h1>Chapter 4 CGI Instructions</h1>
+<p>You can skip this until you are starting Chapter 4.4 on CGI.</p>
+<p>Remember this is the time when it is critical not to have .cgi files under a folder
+with a blank in the name.  See the earlier discussion.</p>
+<div class="section" id="cgi-files-on-my-server-do-not-work">
+<h2>CGI Files on My Server Do Not Work!</h2>
+<p>The administrators of my server changed the security parameters, so now the
+<em>links to run cgi scripts on my internet server do not work.</em>
+Just use the ones
+for the local server on <em>your</em> machine, as discussed below,
+starting with localhost:8080/.</p>
+</div>
+<div class="section" id="opening-cgi-files-in-idle">
+<h2>Opening .cgi Files in Idle</h2>
+<p>By convention the server programs that you will be writing end in &quot;.cgi&quot;.
+That is not an extension that is automatically associated with Idle for editing.
+If you want to open a .cgi file (or any other type but .py)
+to edit (and never run) from inside of Idle, it is possible to do directly in many
+steps, but it is easier to go indirectly:</p>
+<ul class="simple">
+<li>Start a .py file you have in Idle (like localCGIServer.py) (or go from the Windows Start menu)</li>
+<li>To open a .cgi file
+from <em>inside</em> Idle, you select Open form the File menu like normally, but then
+notice the drop-down choice in the lower right of the file open window that
+probably shows Python files (<em>.py):  Change it to All files (</em>.*).</li>
+<li>Then all files in the current folder should be listed,
+and you can navigate to and choose the one you want.</li>
+</ul>
+</div>
+<div class="section" id="running-cgi-scripts">
+<h2>Running CGI Scripts</h2>
+<p>If you create and
+edit a cgi file inside Idle, remember you <em>cannot run it</em> from inside
+Idle.  Besides editing there is one thing you can and should
+do after editing: be <strong>sure</strong> to check the syntax,
+using alt-X, or else you will get zero feedback on syntax errors.</p>
+<p>When you want to test a cgi script, you first need to have launched
+the local CGI Server.  Note that
+localCGIServer.py can be run from inside Idle,
+but then running any other program inside Idle kills the local server.</p>
+<p>You can also start the local server and keep it running as long as you want to
+run .cgi files in that same folder, by double clicking on <tt class="docutils literal">startServer.cmd</tt>
+which I have placed in the example www folder.
+(Note there is a separate Mac/Linux file, <tt class="docutils literal">cgiServerScript</tt>:
+do not try to use that!)</p>
+<p>If you insist on doing cgi work in a different folder, copy both startServer.cmd and localCGIServer.py
+as well as all related .html and .cgi files to that folder,
+and then when you want to test your work, start the local server from <em>there</em> with startServer.cmd.</p>
+<p>At this point you can do all the web server based activities in Chapter 4.
+There are a number of steps: be sure you carefully go through the list in the tutorial.
+Remember, html files calling a cgi file, and cgi files used directly are <em>only</em> run in your web browser
+with a URL starting with localhost:8080/, and only <em>after</em> you have a local server running
+from the same folder.  Otherwise nothing dynamic happens.</p>
+<!-- wait and fix?
+
+Terminal Use (Optional)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+To use the Hands-on Python Tutorial, the information above should be sufficient
+to get your usage going.  Terminals are quite useful in other contexts:
+There are many things that can be
+done from such a window that cannot be done from the File Explorer or with an App.
+
+If you would like a bit more background, read on.
+
+Navigation
+~~~~~~~~~~~~
+
+Windows has a concept of the *current directory*
+Directory is the older term for folder from when there were not pictures of
+folders in a graphical interface.
+
+You start in your home directory.  My login id is anh, so my home directory is
+``\Users\anh``.  Substitute your login id for yours.
+The slashes separate nested directories.  The top hard drive
+directory is ``\``, which contains the directory ``Users`` which contains
+users' home directories, like my ``anh``.
+
+The terminal shows a system prompt when it is ready for user input.  The prompt
+can be set to show many things.  The end of the prompt is often ``>``.
+Before that is often some indication of your current directory.
+
+Single commands are executed after you press the Enter key.
+
+You can get a **dir**\ ectory of the contents of a directory with the ``dir`` command.
+
+If you use the ls command in your home directory, you should see
+``Desktop``, ``Documents``, ``Downloads``, ... listed.
+
+To **c**\ hange **d**\ irectory, use the ``cd`` command followed by
+the directory you would like to change to.  You can use the full
+name of the directory starting with ``\``, but more commonly you just indicate
+where to go relative to where you are now.  ``Desktop`` is a subdirectory of
+your home directory, so from the home directory you can just enter
+
+  cd Desktop
+
+Here is a sequence on my computer after starting a terminal (skipping most
+of the output from ``dir``::
+
+    Microsoft Windows [Version 10.0.10586]
+    (c) 2015 Microsoft Corporation. All rights reserved.
+
+    C:\Users\cs>dir
+     Volume in drive C has no label.
+     Volume Serial Number is 0E71-00F5
+
+     Directory of C:\Users\anh
+
+    05/09/2016  12:29 PM    <DIR>          .
+    05/09/2016  12:29 PM    <DIR>          ..
+    05/09/2016  09:28 AM    <DIR>          Contacts
+    05/09/2016  09:28 AM    <DIR>          Desktop
+    05/09/2016  09:28 AM    <DIR>          Documents
+    ...
+    05/09/2016  09:28 AM    <DIR>          Saved Games
+    05/09/2016  09:28 AM    <DIR>          Searches
+    05/09/2016  09:28 AM    <DIR>          Videos
+                   0 File(s)              0 bytes
+                  15 Dir(s)  71,703,621,632 bytes free
+
+    C:\Users\anh>cd Desktop
+
+    C:\Users\anh\Desktop>dir
+     Volume in drive C has no label.
+     Volume Serial Number is 0E71-00F5
+
+     Directory of C:\Users\anh\Desktop
+
+    05/09/2016  09:28 AM    <DIR>          .
+    05/09/2016  09:28 AM    <DIR>          ..
+    05/09/2016  09:28 AM    <DIR>          examples
+                   0 File(s)              0 bytes
+                   3 Dir(s)  71,703,621,632 bytes free
+
+    C:\Users\anh\Desktop>cd ..
+
+    C:\Users\anh>
+
+Notice that the last use of the ``cd`` command used directory ``..``.
+That stands for the parent directory, the directory containing the
+current directory.
+
+If you unzipped the examples from your Desktop, you can go there with
+
+    cd Desktop/examples
+
+Alter this if you put your examples somewhere else!
+
+It is useful to be in the examples folder.  If you start Idle from there,
+it is easy to open any of the example programs.
+
+When scripts are directly called by the operating system, they look
+for the proper interpreter to read them.  Our scripts are set up to look for
+python3.
+
+To start a regular python program from the current directory, like hello_you.py,
+you would enter a command with python3 and the file name, like
+
+   python3 hello_you.py
+
+Instead of shifting to a separate Shell as in Idle, the output appears right in the
+terminal window. -->
+</div>
+</div>
+</div>
+</body>
+</html>
