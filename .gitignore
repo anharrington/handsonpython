@@ -1,5 +1,4 @@
 build/
-Hands-onPythonTutorialSep14Index.pdf
 *.zip
 .hg/
 .DS_Store
@@ -7,3 +6,6 @@ handsonHtml/
 changelog.html
 */.DS_Store
 */*/.DS_Store
+.hgignore
+*.pdf
+*/*.html

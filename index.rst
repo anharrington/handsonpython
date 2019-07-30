@@ -4,7 +4,7 @@ Hands-on Python Tutorial
 By Dr. Andrew N. Harrington
 ===========================
 
-Home Page for Version 3.1+
+Home Page for Python 3
 ==========================
 
 This page has materials for Python 3.1 and later, which is incompatible
@@ -27,15 +27,6 @@ Example programs **needed to test out code used in the tutorial**:
 -  `Examples zip file <examples.zip>`_  for download.  
    **Be sure to download this file and then expand it** to have
    all the Python example programs needed for the tutorial. 
--  The latest Python system and operating system changes are
-   described `for Windows <pythonOnWindows.html>`_ and
-   `for Mac/Linux <pythonOnMac.html>`_.
-   More
-   detailed installation 
-   `instructions  <handsonHtml/idle.html#Your-Python-Folder>`_ 
-   are in the tutorial under Section
-   1.2.1, Your Python Folder 
-   and Python Examples.
 
 
 The tutorial continues to be updated and expanded. You can see an
@@ -59,10 +50,10 @@ License and Tutorial Editing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Hands-on Python Tutorial is distributed under the Creative Commons
-`Attribution-Noncommercial-Share Alike 3.0 United
-States <http://creativecommons.org/licenses/by-nc-sa/3.0/us/>`_ License.
+`Attribution-Noncommercial-Share Alike 4.0 
+<https://creativecommons.org/licenses/by-nc-sa/4.0/>`_ License.
 If you wish to modify the tutorial, subject to this license, you will
-likely want the source [`zip file <rst.zip>`_] and the
+likely want the `source from Github <https://github.com/anharrington/handsonpython>`_ and the
 `Sphinx <http://sphinx.pocoo.org/>`_ processing tools that allow the
 text and graphics to be presented in different formats, based on the
 same source files.
