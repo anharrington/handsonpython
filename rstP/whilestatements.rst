@@ -94,7 +94,8 @@ Check yourself by running the example program ``testWhile.py``.
    In Python, ``while`` is not used *quite* like in English. In
    English you could mean to stop *as soon as* the condition you want
    to test becomes false. In Python the test is *only* made when
-   execution for the loop starts, *not* in the middle of the loop.
+   execution for the loop starts (or starts again), 
+   *not* in the middle of the loop.
 
 *Predict* what will happen with this slight variation on the
 previous example, switching the order in the loop body. Follow it
@@ -203,7 +204,7 @@ simplicity. Obviously they could have been rewritten with range
 function calls. Now lets try a more interesting example. Suppose
 you want to let a user enter a sequence of lines of text, and want
 to remember each line in a list. This could easily be done with a
-simple repeat loop if you knew the number of lines to enter. For
+simple repeat loop *if you knew the number of lines to enter*. For
 example, in ``readLines0.py``, the user is prompted for the exact
 number of lines to be entered:
 
@@ -229,7 +230,8 @@ one before the ``while`` loop and one at the bottom of the loop body.
    first test of the while condition to work. Also the test must work
    when you loop back from the end of the loop body. This means the
    data for the test must also be set up a second time, *in* the loop
-   body.  It is easy to forget the second time!
+   body (commonly as the action in the last line of the loop).  
+   It is easy to forget the second time!
 
 The ``readLines1.py`` code works, but it may be more annoying than
 counting ahead! Two lines must be entered for every one you
@@ -307,6 +309,9 @@ questions to ask yourself.  They keep on applying!  Keep these in mind!
     have *new* data values to process each time through, and eventually reach
     a stopping point.
     
+**Detecting the need for** ``while`` **statements**: 
+Like with planning programs needing``for`` or ``if`` statements, you want to be able to translate English descriptions of problems that would naturally include ``while`` statements.  What are some words or phrases or ideas that suggest the use of
+these statements?  Think of your own and then compare to a few I gave: [#]_
 
 .. _interactive-sumEx:
     
@@ -314,7 +319,7 @@ Interactive Sum Exercise
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Write a program ``sumAll.py`` that prompts the user to enter
-numbers, one per line, ending with a line containing 0, and keep a
+numbers, one per line, ending with a line containing only 0, and keep a
 running sum of the numbers. Only print out the sum after all the
 numbers are entered (at least in your *final* version).
 Do *not* create a list!  Each time you read in a number, you can
@@ -362,18 +367,25 @@ Savings Exercise
 The idea here is to see how many years it will take a bank account to grow
 to at least a given value, assuming a fixed annual interest.
 Write a program ``savings.py``.
-Prompts the user for three numbers: an initial balance, the annual percentage
-for interest as a decimal. like .04 for 4%, and the final balance desired.
-Print the initial balance, and the balance each year until
-the desired amount is reached. Round displayed amounts
-to two decimal places, as usual.
+Prompt the user for three numbers: an initial balance, the annual percentage
+for interest as a decimal, like .04 for 4%, and the final balance desired.
+
+All the monetary amounts that you print should be rounded to *exactly* two
+decimal places.  Start by printing the initial balance this way.  
+For example, if the initial balance was entered as 123.5, 
+it should be reprinted by your program as 123.50.
+Also print the balance each year until
+the desired amount is reached or passed. The first balance at or
+past the target should be the last one printed.
 
 The math:  The amount next year is the amount now times
 (1 + interest fraction),
 so if I have $500 now and the interest rate is .04,
 I have $500*(1.04) = $520 after one year and after two years I have,
-$520*(1.04) = $540.80.
-If I enter into the program a $500 starting balance, .04 interest rate and
+$520*(1.04) = $540.80....
+
+For example, if I respond to the prompts, 
+and enter into the program a $500 starting balance, .04 interest rate and
 a target of $550, the program prints::
 
    500.00
@@ -406,7 +418,7 @@ jump function, starting from n=3, eventually reaches the value 1.
 It is an open research question whether iterating the jump function
 from an integer n will eventually reach 1,
 for *every* starting integer n greater than 1.
-Researchers have only found examples of n where it is true.
+Researchers have only found *examples* of n where it is true.
 Still, no general argument has been made to apply to the
 *infinite* number of possible starting integers.
 
@@ -433,16 +445,14 @@ b.  After you have finished and saved ``jumpSeq.py`` copy it and save
     For all integers n in the range from the lowest start through
     the highest start, including the highest,
     print a sentence giving the starting value of n
-    and the length of the list from ``listJumps(n)``.  An example run::
+    and the length of the list from ``listJumps(n)``.  An example run:
 
-        Enter lowest start: 3
-        Enter highest start: 6
-        Starting from 3, jump sequence length 8.
-        Starting from 4, jump sequence length 3.
-        Starting from 5, jump sequence length 6.
-        Starting from 6, jump sequence length 9.
-    
-
+        | Enter lowest start: 3
+        | Enter highest start: 6
+        | Starting from 3, jump sequence length 8.
+        | Starting from 4, jump sequence length 3.
+        | Starting from 5, jump sequence length 6.
+        | Starting from 6, jump sequence length 9.
 
 
 .. _Graphical-Applications:
@@ -527,7 +537,7 @@ above where I was assuming the third click was the last for the triangle,
 I did not ``undraw`` the Polygon.  
 
 The timing for each ``undraw`` needs to be after the next mouse click
-and presumably before the next Polygon is created, so it could be
+and presumably before the revised Polygon is created, so it could be
 before or after the line ``vertices.append(pt)``. I arbitrarily
 chose for it to go before the vertices list is changed. The rest
 of the order of the lines is pretty well fixed by the basic logic.
@@ -603,7 +613,9 @@ Instead of *avoiding* the ``undraw`` as you exit the loop, another
 option in this case is to *undo* it: just **re**\ draw the polygon one
 final time *beyond* the loop. This only needs to be done once, not
 repeatedly in the loop. Then the repetitious lines collapse neatly
-into the loop.  If you look at the overall concrete sequence for the triangle,
+into the loop.  
+
+If you look at the overall concrete sequence for the triangle,
 not all the lines are in the loop.  You must carefully include the lines
 both that come before the loop and those that come after the loop.
 Make sure these lines are not put *in* the loop, but before or after,
@@ -816,38 +828,48 @@ the basic loop logic
 works whether the ``poly.undraw()`` call is at the beginning or end
 of the loop. Write a variation ``makePoly2.py`` that makes the code
 work the other way, with the ``poly.undraw()`` at the beginning of
-the loop. The new place to cut the loop *does* affect the code
+the loop. Do not change or move any other statement in the loop.
+The new place to cut the loop *does* affect the code
 before and after the loop. In particular, the extra statement
 drawing ``poly`` is not needed after the loop is completed. Make
-other changes to the surrounding code to make this work. Hints: [#]_
+other changes to the *surrounding* code to make this work. Hints: [#]_
 
 
 Make Path Exercise
 ~~~~~~~~~~~~~~~~~~
 
-\*\* Write a program very similar to ``makePoly.py``, and call it
+\*\* Write a program that is outwardly very similar to ``makePoly.py``, 
+and call it
 ``makePath.py``, with a function ``pathHere``. The only outward
 difference between ``polyHere`` and ``pathHere`` is that while the
 first creates a closed polygon, and returns it, and the new one
 creates a polygonal path, without the final point being
-automatically connected to the first point, and a list of the lines
+automatically connected to the first point, and a *list* of the lines
 in the path is returned. Internally the functions are quite
 different. The change simplifies some things: no need to undraw
 anything in the main loop - just draw the latest segment each time
-going from the previous point to the just clicked point. There is a
-complication however, you do need deal specially with the first
+going from the previous point to the just clicked point. There are
+complications however: You do need deal specially with the first
 point. It has no previous point to connect to. I suggest you handle
-this *before* the main loop, and draw the point so it is a visible
-guide for the next point. After your main loop is finished undraw
+this *before* the main loop: 
+If the point is inside the rectangle,
+draw the point so it is a visible
+guide for the next point. Before returning, undraw
 this initial point. (The place on the screen will still be visible
 if an initial segment is drawn. If no more points were added, the
-screen is left blank, which is the way it should be.) You also need
+screen is left blank, which is the way it should be, 
+and an empty list of lines should be returned.) You also need
 to remember the previous point each time through the main loop.
+I suggest you think individually about what should happen if
+you stop the drawing when the
+first, second or third point is outside the rectangle.  Also
+test each of those cases after the program is written.
 
-In your main program, test the ``makePath`` function several times.
-Use the list of lines returned to loop and change the color in one
-path and the width of the lines in another path. A portion of a
-sample image is shown below after all this is done.
+In your main program, call the ``makePath`` function two times.
+Use the list of lines returned to loop through 
+and change the color of all the lines in one
+path and the width of the lines in the other path. A portion of a
+sample image from this program is shown below.
 
 .. figure:: images/polylines.*
    :align: center
@@ -880,8 +902,8 @@ is not an animation program, but this section is where you have had
 the most experience with while loops!) 
 
 Hints:  This is actually the most natural approach. I avoided ``while``
-loops initially, when only ``for`` loops had been discussed. It is
-redundant in the original approach, however, to find every instance
+loops initially, when only ``for`` loops had been discussed. In the original approach, however, it is
+redundant to find every instance
 of ``'{'`` to *count* the number of repetitions and then *find* them
 all again when extracting the cue keys. A more natural way to
 control the loop is a ``while`` loop stopping when there are no
@@ -911,7 +933,7 @@ Hint: you have already seen the code to determine the displacement
 ``bounce2.py``. Once you have the displacement (dx, dy) between the
 hidden center and the latest mouse click, the distance between the
 points is ``(dx*dx + dy*dy)**0.5``, using the Pythagorean
-Theorem of geometry. If this distance is no more than the radius
+Theorem of geometry. If this distance is no more than the radius that
 you have chosen for the mystery circle, then the user has found the
 circle! You can use ``getShift`` as written, or modify it into a
 function ``getDistance`` that directly returns the distance between
@@ -958,6 +980,9 @@ loop pattern! It obscures the loop exit. The choice between the
 approach of ``bounce3.py`` and ``bounce4.py`` is a matter of taste in the
 given situation.
 
+.. [#] "while ___", "do ___ while", "repeat while", "repeat until",
+   "as long as ___, do", "keep doing ___ as long as"
+
 .. [#]  You will need a loop.
    You can print/append almost all the numbers in the loop.
    You are likely to omit one number with just this code,
@@ -968,9 +993,10 @@ given situation.
    It applies to lists.
 
 .. [#]  The basic issue is similar to the old version: the undraw is not
-   always needed, at the beginning in this case. In this place it is not
-   need the *first* time through the loop. The two basic approaches
-   considered for the previous version still work here: break into
-   cases inside the loop or make an extra compensating action outside
-   the loop. Further hint: It is legal to draw a polygon with an empty
+   always needed -- at the beginning in this case. In this place it is not
+   needed the *first* time through the loop. The two basic approaches
+   considered for the previous version still work here: make an extra compensating action outside
+   the loop or break into
+   cases inside the loop. Further hint: 
+   It is legal to draw a polygon with an empty
    vertex list - nothing appears on the screen.

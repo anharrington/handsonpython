@@ -53,21 +53,24 @@ the string internally in Python using *escape codes*. Escape codes
 are embedded inside string literals and start with a backslash
 character ``\``. They are used to embed characters
 that are either unprintable or have a special syntactic meaning to
-Python that you want to suppress. In this example you see the most
-common ones:
+Python that you want to suppress. In this example you see some of the 
+ones in this short list of most
+common escape codes:
 
-+-------------+----------------------+
-| Escape code | Meaning              |
-+=============+======================+
-| ``\\``      | ``\`` (backslash)    |
-+-------------+----------------------+
-| ``\n``      | newline              |
-+-------------+----------------------+
-| ``\'``      | ``'`` (single quote) |
-+-------------+----------------------+
++-------------+---------------------------------+
+| Escape code | Meaning                         |
++=============+=================================+
+| ``\\``      | ``\`` (backslash)               |
++-------------+---------------------------------+
+| ``\n``      | newline                         |
++-------------+---------------------------------+
+| ``\'``      | ``'`` (single quote character)  |
++-------------+---------------------------------+
+| ``\"``      | ``"`` (double quote character)  |
++-------------+---------------------------------+
 
 The newline character indicates further text will appear on a new
-line when *printed*. When you use a print function, you get the
+line when *printed*. When you use the ``print`` function, you get the
 actual printed meaning of the escape coded character.
 
 Predict the result, and try in the *Shell*::

@@ -99,9 +99,13 @@ Number Dictionary Exercise
 Write a tiny Python program ``numDict.py`` that makes a
 dictionary whose keys are the words 'one', 'two', 'three', and
 'four', and whose corresponding values are the numerical
-equivalents, 1, 2, 3, and 4 (ints, not strings). Include code to
+equivalents, 1, 2, 3, and 4 (of type int, not strings). Include code to
 test the resulting dictionary by referencing several of the
-definitions and printing the results.
+definitions and printing the results.  
+
+(This dictionary 
+illustrates simply that the values in a Python dictionary are not
+required to be strings.) 
 
 .. index:: dictionary; format string
    format string; **dictionary
@@ -144,7 +148,7 @@ and further parameters in parentheses.
 In the example above, the object is the string called
 ``numberFormat``. The method is named ``format``. The parameters in
 this case are all *keyword* parameters. You have already seen
-keyword parameters ``sep`` and ``end`` used in print function
+keyword parameter ``sep`` used in print function
 calls. In this particular application, the keywords are chosen to
 include all the words that appear enclosed in braces in the
 ``numberFormat`` string.
@@ -252,11 +256,11 @@ Note the variable names inside braces in ``formatStr,`` and the
 dictionary reference used as the format parameter is
 ``**locals()``.
 
-A string like ``formatStr`` is probably the most readable way to
+A string like ``formatS`tr`` is probably the most readable way to
 code the creation of a string from a collection of literal strings
 and program values. The ending part of the syntax,
 ``.format(**locals())``, may appear a bit strange, but it is
-very useful! We will use this notation extensively.  It clearly
+very useful! It clearly
 indicate how values are embedded into the format string, and avoids having
 a long list of parameters to ``format``.
 
@@ -264,6 +268,17 @@ The example program ``hello_you4.py`` does the same thing as the
 earlier hello_you versions, but with a dictionary reference:
 
 .. literalinclude:: ../examples/hello_you4.py
+
+**F-Strings**: (Optional, but handy!)
+A simplification for formatting added in Python 3.6 is *f-strings*.  
+They have many features, but the simplest thing 
+is to shorten formatting of a literal string with 
+local variable references like above:
+Merely add an ``f`` immediately *before* the literal format string,
+and eliminate the ``.format(**locals())``.
+See example arithfstring.py:
+
+.. literalinclude:: ../examples/arithfstring.py
 
 
 .. _QuotientStringDict:
@@ -273,7 +288,9 @@ Quotient String Dictionary Exercise
 
 Create :file:`quotientDict.py` by modifying :file:`quotientReturn.py` in
 :ref:`QuotientStringEx` so that the ``quotientString`` function
-accomplishes the same thing, but change the format method call to use
-the dictionary ``**locals()`` as parameter, and put local variable names inside
-the braces.  If you use meaningful names for the variables, the
+accomplishes the same thing:  Put local variable names inside
+the braces of a format string, and either process the 
+format string by appending ``.format(**locals())`` or else make
+the format string into an f-string.
+If you use meaningful names for the variables, the
 format string should be particularly easy to understand.

@@ -2,8 +2,8 @@ Overview
 ========
 
 This chapter leads up to the creation of dynamic web pages. These
-pages and supporting programs and data may be tested locally via a
-simple Python web server available on your local machine. If you
+pages and supporting programs have you using a simple 
+Python web server available on your local machine. If you
 have access, the pages and programs may be uploaded to a public
 server accessible to anyone on the Internet.
 
@@ -19,6 +19,21 @@ A few disclaimers:
    specific HTML codes. That is mostly avoided with the use of a modern
    word-processor-like HTML editor. As a specific example, the open
    source HTML editor Kompozer is discussed.
+
+-  You need to work in a folder where all the folders above it,
+   up to the root folder for your hard drive,
+   have no blanks in the name.  As long as your home folder
+   has no blank in the name, the folder can be under that, like
+   on your Desktop or in your Documents.
+
+   If you *do* have a blank in the name of your home folder,
+   you will need to keep the files for this Chapter elsewhere.
+   That may mean a separate folder on yur hard drive or on
+   a removable drive like a flash drive.
+
+   If the examples subfolder www is not in a place with 
+   all further up folders having no blank in the names,
+   then move it now.
 
 The chapter does allow you to understand the overall interaction
 between a browser (like Firefox on your local machine) and a web
@@ -53,16 +68,11 @@ I start with an overview:
 
 #. To fully integrate a browser and server, we 
 
-   #. use web forms to provide data
+   #. use web forms to provide data,
 
    #. use a Python program specified on the server called a *CGI script* to
-      transform the input data into the desired output
+      access the web form data and transform the input data into the desired output,
 
    #. embed the output in a new dynamic web page that gets sent back to your
       browser. This Python server program transforms the input data, and
       generates output web pages much like we did in step 3, above.
-
-#. Finally, if you set up a GoogleApp account, or have access to another
-   server, you can upload and show off your work on your own
-   personal web site, accessible to everyone on the Internet.
-   (Modifications needed are not covered in this Tutorial.)

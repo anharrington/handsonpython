@@ -34,16 +34,18 @@ if you continue in other places:
 
 #. Event handling in graphical programming
 
+#. Listing, moving and deleting stored files; creating folders
+
 #. Recursion (not special to Python): a powerful programming
    technique where functions call themselves
 
 Beyond these language features, Python has a vast collection of
-useful modules. An example program, ``bbassign.py``, is a real-world
-program that I have in regular use for processing inconveniently
-organized files created by Blackboard for homework submissions. It
-is a command-line script that uses string methods and slicing and
+useful modules. For example, I wrote a real-world
+program, sakaihw.py, that I have in regular use for processing large numbers of
+files submitted to Sakai in homework submissions. It
+uses string methods and slicing and
 both kinds of loops, as well is illustrating some useful components
 in modules sys, os, and os.path, for accessing command line
-parameters, listing file directories, creating directories, and
+parameters, listing file directories, creating folders, and
 moving and renaming files.
 

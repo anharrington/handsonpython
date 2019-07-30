@@ -24,7 +24,7 @@ elements, unlike a list. Examples are ::
 .. index::
    double:  tuple; multiple assignment
 
-They are another way to make several items into a single object.
+Making a tuple is another way to make several items into a single object.
 You can refer to individual parts with indexing, like with lists,
 but a more common way is with multiple assignment. A silly simple
 example::
@@ -147,7 +147,7 @@ replacement has further advantages.
    specified. That could be useful earlier in the program ....
 
 Are individual names for the rectangles needed earlier? No, the
-program only need to end up with the pairs of the form
+program only needs to end up with the pairs of the form
 ``(rectangle, color)`` in a list.
 The statements in the original program, below,
 have a similar form which will allow them to be rewritten::
@@ -231,7 +231,7 @@ Then look to see the differences between the code for the two
 choices. The ``shape`` object to be colored and the name used to
 describe the shape change: two changes in each part. Again tuples
 can store the changes of the form (shape, description). This is
-another place appropriate for a loop driven by tuples.. The (shape,
+another place appropriate for a loop driven by tuples. The (shape,
 description) tuples should be explicitly written into a list that
 can be called ``shapePairs``. We could easily extend the list
 shapePairs to allow more graphics objects to be colored. In the

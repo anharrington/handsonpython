@@ -83,11 +83,11 @@ guess the resulting type): [#]_ ::
     2*2.5 
 
 .. [#]
-   Python 3.1 does what you would expect mathematically with an
+   Python 3 does what you would expect mathematically with an
    expression like ``(1/2)*6.5``
 
    *Caution:*  This is not the case in other common languages like Java
-   and C++ (or with versions of Python before 3.0). They treat the /
+   and C++ (or with Python 2). They treat the /
    operation with integers like the current Python //, so the result
    of the expression above is 0, since ``1//2`` is 0.
 
@@ -174,28 +174,32 @@ formatted string to be used again (as ``s``).
 
 This rounding notation can also be placed after a colon inside the
 braces of format strings, for use with the string format *method*.
-Recall there are many ways to indicate what values to substitute 
-into a format string.  One way is just to omit any reference to the variables 
-and substitute parameters in order.  Separate from the value to substitute, 
-and following any notation for it, you can put a colon ``:`` and the 
+You can put a colon ``:`` and the 
 formatting information we used in the simple format method above (like ``.5f``.
-but with NO quotes)::
+but with NO quotes)
+Recall there are many ways to indicate what values to substitute 
+into a format string.  The first way introduced 
+is just to omit any reference to the variables 
+and substitute the method's parameters in order as in:: 
 
     >>> x = 2.876543 
-    >>> 'longer: {:.5f}, shorter: {:.3f}.'.format(x, x) 
-    'longer: 2.87654, shorter: 2.877.' 
+    >>> y = 16.3591 
+    >>> 'x long: {:.5f}, x short: {:.3f}, y: {:.2f}.'.format(x, x, y) 
+    'x long: 2.87654, x short: 2.877, y: 16.36.' 
+
+The first part inside the formatting braces can also indicate what
+value to substitute, as when using a dictionary. ::
+
+    >>> x = 2.876543 
+    >>> 'long: {x:.5f}, short: {x:.3f}.'.format(**locals()) 
+    'long: 2.87654, short: 2.877.' 
+
 
 The instructions for the data to insert
-can also be given by position index::
+can also be given by position index (from the optional end of :ref:`Format-Strings`)::
 
     >>> x = 2.876543 
     >>> 'longer: {0:.5f}, shorter: {0:.3f}.'.format(x) 
-    'longer: 2.87654, shorter: 2.877.' 
-
-or using dictionary keys::
-
-    >>> x = 2.876543 
-    >>> 'longer: {x:.5f}, shorter: {x:.3f}.'.format(**locals()) 
     'longer: 2.87654, shorter: 2.877.' 
 
 In each of these approaches, the colon and formatting specification 
@@ -214,7 +218,7 @@ digits, you can check that Python does not necessarily remember
 simple decimal numbers exactly::
 
     >>> format(.1, '.20f') 
-    0.10000000000000000555 
+    '0.10000000000000000555' 
     >>> format(.2, '.20f') 
     '0.20000000000000001110' 
     >>> format(.1 + .2, '.20f') 
@@ -234,7 +238,7 @@ two expressions are *not* exactly equal.
     exactness of floating point arithmetic, even for apparently simple
     expressions!
 
-The floating point formatting code in this section is also in
+Floating point formatting code similar to this section is also in
 example program ``floatFormat.py``.
 
 Floating Point Exercise

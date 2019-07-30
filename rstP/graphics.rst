@@ -12,27 +12,18 @@ book. My slight elaboration of his package is ``graphics.py`` in the
 example programs.
 
 ..  warning::
-    It is particularly important in Microsoft Windows
-    with the graphics *not* to open Idle from the Start menu.
-    *Graphics will fail.*  Use one of the following two methods.
+    You need the file ``graphics.py`` in the same folder as
+    any graphics program you write.  Be sure to save
+    any graphics program you write in such a folder
+    (like my examples folder).  The easiest way
+    to ensure this is to start in the desired folder,
+    as discussed in :ref:`idle-for-editing`.
     
 ..  warning::
     To work on the most systems, this version of graphics.py
     *cannot be used from the Idle shell*. There is an issue
     with the use of multiple threads of execution.  
-    The video for this revised section was uploaded Aug 17, 2012:
-    Any earlier version is completely out of date.
     
-In Microsoft Windows, have Python version 3.4 or greater and
-be sure to start Idle in one of two ways:
-
-*   from the shortcut provided in the examples folder
-    (in the same folder as ``graphics.py``)
-
-*   or start by right clicking on an existing graphics program file
-    in the *same* folder to
-    get a context menu and choose :guilabel:`Open With Idle:`.
-
 .. _Graphics-Introduction:
     
 A Graphics Introduction
@@ -194,7 +185,7 @@ this sort of output might be a
 good reality check.
 
 At the end of ``graphIntro.py``,
-I added print lines to illustrate the debugging possibilites::
+I added print lines to illustrate the debugging possibilities::
 
 	print('cir:', cir)
 	print('line:', line)
@@ -202,7 +193,8 @@ I added print lines to illustrate the debugging possibilites::
 
 You can load ``graphIntro.py`` into Idle, run it, and add further lines
 to experiment if you like.  Of course you will not see their effect until
-you run the whole program!
+you run the whole program!  Unfortunately the graphics do not work when
+entered directly into the Shell.
 
 
 .. _Sample-Graphics:
@@ -216,7 +208,9 @@ window, requiring you to pay attention to two windows.
 Instead consider a very simple example program, ``face.py``, 
 where all the action takes place in the graphics window.
 The only interaction is
-to click the mouse to close the graphics window. In Windows, have a directory
+to click the mouse to close the graphics window. 
+
+In Windows, have a folder
 window open to the Python examples folder containing ``face.py``,
 where your operating system setup may allow you be just 
 double click on the icon for ``face.py`` to run it.  If that does not
@@ -270,7 +264,11 @@ centers directly. They are filled in and made visible.
 Also note, that because the earlier
 ``win.yUp`` call put the coordinates in the normal
 orientation, the y coordinate, 100 and 105, are above the middle of the
-150 pixel high window.  ::
+150 pixel high window.  
+
+If the code was switched to put the head part second, the
+eye would become hidden.  The most recent thing
+drawn is on top.  ::
 
         eye2 = Line(Point(45, 105), Point(55, 105)) # set endpoints 
         eye2.setWidth(3) 
@@ -302,7 +300,9 @@ point at the *center* of the text, and the text string itself.
 The exact coordinates for the parts were determined by a number of
 trial-and-error refinements to the program. An advantage of
 graphics is that you can *see* the results of your programming, and
-make changes if you do not like the results!
+make changes if you do not like the results!  In this simple
+system, there is not a good way to predict the dimensions of
+text on the screen.
 
 The final action is to have the user signal to close the window.
 Just as with waiting for keyboard input from ``input``,
@@ -367,12 +367,14 @@ the centers makes sense.
 The next example, ``triangle.py``, illustrates similar starting and
 ending code. In addition it explicitly interacts with the user.
 Rather than the code specifying literal coordinates for all
-graphical objects, the program remembers the places where the
-*user* clicks the mouse, and uses them as the vertices of a
-triangle.
+graphical objects, the program remembers
+the Points where the user clicked the mouse. 
+They are used as the vertices of a
+triangle. 
 
 Return to the directory window for the Python examples. In Windows
-you can double click on the icon for ``triangle.py`` to run it.
+you may be able to double click on the icon for ``triangle.py`` to run it.
+Or on a Mac, you can run it using the Python Launcher, rather than Idle.
 
 While running the program, follow the prompts in the graphics
 window and click with the mouse as requested.
@@ -384,7 +386,7 @@ or look below:
 
 Let us look at individual parts.
 
-The lines before the new iine::
+The lines *before* the new line::
 
     win.setBackground('yellow')
 
@@ -398,7 +400,7 @@ property of the whole graphics window that you can set.  ::
     message.setSize(20) 
     message.draw(win) 
 
-Again a Text object is created.  This is the prompt for user action.
+Again a ``Text`` object is created.  This is the prompt for user action.
 These lines illustrate most of the ways the appearance of a Text
 object may be
 modified, with results like in most word processors. The reference pages
@@ -477,7 +479,7 @@ was no keyboard input or screen output through the console window,
 so the console window was unused and unnecessary. In such cases,
 under Windows, you can change the source file extension from .py to
 .pyw, suppressing the display of the console window. If you are
-using Windows, change the filename ``triangle.py`` to ``tringle.pyw``,
+using Windows, change the filename ``triangle.py`` to ``triangle.pyw``,
 double click on the icon in its directory folder, and check it out.
 
 The distinction is irrelevant inside Idle, which always has its
@@ -948,7 +950,8 @@ because we want all the parts to move *together*, not one eye all
 the way across the screen and then have the other eye catch up! A
 variation on ``moveOnLine`` is needed where all the parts move
 together. We need all the parts of the face to move one step,
-sleep, and all move again, .... This could all be coded in a single
+then sleep *once*, and all move again, sleep *once*, .... 
+This could all be coded in a single
 method, but there are really two ideas here:
 
 #. Moving a group of objects one step.
@@ -1002,7 +1005,7 @@ in sequence.  Depending on your computer setup,
 all the parts of the face may *appear* to move together.
 Again, the computer is much faster than our eyes.  On a computer that
 repaints the screen fast enough, the only images we
-notice are the ones on the screen when the animation is sleeping.  
+notice are the *ones on the screen when the animation is sleeping*.  
 
 ..  note::
     
@@ -1231,7 +1234,7 @@ Run the next example, addEntries.py, also copied below:
 .. literalinclude:: ../examples/addEntries.py
 
 As with the ``input``
-statement, you only can read strings from an ``Entry``.
+statement, you can only read *strings* from an ``Entry``.
 With conversions, it is still possible to work with numbers.
 
 Only one new graphical method has been included above::
@@ -1498,10 +1501,14 @@ And another possible run with user input 2::
    :ref:`Object-Orientation`.
 
 .. [#]
-   Actually, lists are even trickier, because the elements of a
-   ``list`` are arbitrary: There can still be issues of dependence
-   between the original and cloned list if an *element* of the list
-   is itself mutable, and you choose to mutate the element.
+   Actually, lists are even trickier, because individual elements of a
+   ``list`` may be *mutable*: Each mutable
+   element in the cloned list is an *alias* of the corresponding element
+   in the original list, so if you *mutate* its state in the cloned list,
+   you also make a change to the original list.  This is distinct
+   from the situation if you *replace* an
+   element in the cloned list by a totally different one: then you do not
+   change the original list.
 
 .. [#]
    5 and 294 (one less than 295).

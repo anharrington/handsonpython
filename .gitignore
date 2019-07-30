@@ -9,3 +9,4 @@ changelog.html
 .hgignore
 *.pdf
 */*.html
+devel/feedback/

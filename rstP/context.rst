@@ -72,10 +72,9 @@ Why Python
 
 There are many high-level languages. The language you will be
 learning is Python. Python is one of the easiest languages to learn
-and use, while at the same time being very powerful: It is used by
-many of the most highly productive professional programmers. A few
-of the places that use Python extensively are Google, the New York
-Stock Exchange, Industrial Light and Magic, .... Also Python is a
+and use, while at the same time being very powerful: It is one of the most used languages by
+highly productive professional programmers. 
+Also Python is a
 free language! If you have your own computer, you can download it
 from the Internet....
 
@@ -87,58 +86,14 @@ Obtaining Python for Your Computer
 ----------------------------------
 
 Even if you have Python on your own computer, you may well not have the latest version.
-Go to the Downloads page below and check on the latest version.  The instructions for 
-individual operating systems describe how to check if you think you already
-have what you need.
 
-Go to the Downloads page linked to
-http://www.python.org. Be careful to choose the version for your
-operating system and hardware. Choose the latest stable version.
-You do not need a source code distribution.
+If you think you already have a current Python set to go, then try starting Idle:
+:ref:`Starting-Idle`.  If Idle starts, see if the version stated near the 
+top of its window matches the latest
+version of Python, then fine!
 
-Do not choose a version 2.X, which is incompatible. (Version
-2.6 and 2.7 are described in an older version of this tutorial.)
-
-Windows
-   If you think you already have a current Python set to go, you can check
-   by getting the examples, :ref:`Your-Python-Folder`.  Then try starting Idle:
-   :ref:`Starting-Idle`.  If Idle starts, see if the version matches the latest
-   version of Python.  If so, skip the part below!
-   
-   Note:  there is one variation from the default installation below: 
-   *Read* everything before completing the installation.
-   
-   Make sure the version is at least 3.4 or 
-   later, and use a download package with the MSI installer, 
-   if it is available. 
-   If you do not know that your machine 
-   is using a 64 bit version of the operating system, 
-   a 32 bit version is safer.  
-   
-   *Except* in one case, you just need to execute the installer, and interact
-   enough to agree to all the default choices: 
-   *On the step choosing components to install*, if there is an X beside the
-   last component, putting Python in your path,  
-   you are encouraged to click on that component and include it.
-   
-   If you forget this one variation from the defaults,
-   you can return to the installation and *repair* it.
-
-OS X   
-   If you think you already have a current Python set to go, then try starting Idle:
-   :ref:`Starting-Idle`.  If Idle starts, see if the version matches the latest
-   version of Python.  If so, skip the part below!
-   
-   Double-click on the installer for your version of OS X. 
-   Find and run the
-   MacPython.mpkg that is inside. Follow the defaults for
-   installation.
-
-   **Note** that Python uses a Tcl/Tk library, and Macs come with a version,
-   however, for some versions of the operating system,
-   a different version of Tcl/Tk is needed.  *Be sure to see*
-   http://www.python.org/download/mac/tcltk/
-   and see if you need to do a separate download listed there.
+Otherwise, if you are using Windows or a Mac, see the :doc:`appendices` for instructions for 
+individual operating systems.
 
 Linux
    An older version of Python is generally installed, and even if
@@ -220,7 +175,7 @@ several ways:
 
 -  Detailed Table of Contents
 
--  Extensive Index
+-  Extensive Index in the web page version
 
 -  Flexible Search Engine built into the html version
    (does *not* work on an html version that you download to your computer)
@@ -250,53 +205,36 @@ for the part of the class after Python.
 
 The videos are in two places:
 
-*   Box.com: https://luc.box.com/comp150video  
+*   `OneDrive <https://loyolauniversitychicago-my.sharepoint.com/:f:/g/personal/aharrin_luc_edu/EsF_0EGwnmFApwhmnHjNVAkBKxrfZcyQN1pFt-AK2yqMbQ?e=K2l8S9>`_.
+    There are five zip files of videos that you can download and unzip:  one zip file for each chapter of the Python Tutorial (other than apendicies) and one for the remainder of the class (BeyondPython).
+  
 
     Download split in 5 parts, with no ID needed at all.
-    The four chapters of the Hands-on Python Tutorial and beyondPython 
+    The four chapters of the Hands-on Python Tutorial (other than appencices) 
+    and beyondPython 
     are collected in zip files for you to download, and then *expand* 
     the zip files before using.   
 
 *   Google Drive: 
-    https://drive.google.com/a/cs.luc.edu/#folders/0B5WvvnDHeaIYMGE2MzU4OWEtYzQ4Zi00YzhiLTliMTItNjRjYzMyYzgyMTk2
+    https://drive.google.com/drive/folders/0B5WvvnDHeaIYMGE2MzU4OWEtYzQ4Zi00YzhiLTliMTItNjRjYzMyYzgyMTk2?usp=sharing
     
     You need a Google Drive/Docs login ID. 
     If you are not already logged into Google Drive/Docs, you will need to do it when
     you click on the link.
     If you have that ID, 
     then the advantage of Google Drive is that you can select exactly what parts to 
-    download in one long download (548 MB total), and you do not need to separately
-    unzip.  
+    view or download.  
     This may not work with Internet Explorer, 
     but it does work with Firefox, Safari or Chrome browser.  
-
-    If you want all the videos for the course click on the **box in front** of the
-    Title line to get all the folders under comp150video.
-    If you want less, drill down to the parts you want,
-    and click in the boxes in front of them.
-
-    Then in the lower headings, to the right of the Trash can icon, 
-    click on the More heading.  
-    Select Download....
-    Leave file types As Is, and click on the download button.  This is
-    best done before going to sleep for the night if you selected most of the course!
 	
-From either site, the videos are also runnable by clicking on one and streaming from the
-Internet, but they only delivers a smaller version of the image,
-leaving the audio fine, but making text hard or imposible to read.
-If the video is following along with the tutorial text, and you look at the
-full sized web page while listening, the video size may sometimes not be
-an issue.  
-The Box version is also likely to be slow to start from online.
-The downloaded versions will display in full size and resolution.  
-
 To get the most out of the tutorial, I strongly suggest the following
 approach for each part:
 
 -  Watch a video if you like.  They are clearly labeled by numerical section.
    Stop the video where I ask you to *think*.
    The videos hit the high points and take advantage of being able to point
-   at specific places on the screen.
+   at specific places on the screen.  They are not as recent as the current text,
+   so they may look a bit different than the tutorial  in a web page.
    
    Some details may only appear
    in the written text.
@@ -323,11 +261,8 @@ approach for each part:
 
 -  Python provides too rich an environment to be able to show you all
    interrelationships immediately.  That can mean errors send you in
-   a strange (to you) direction.  I cannot head them all off for you in this text.
-   Do not be afraid to ask for help from your instructor or another
-   more experienced Python programmer if you look and look again
-   at something and are still stuck.  The frequency of such situations
-   should decrease as you get more experience!
+   a strange (to you) direction.  See the appenidix section
+   :doc:`usingerrormessages`.
    
 Have fun and be creative, and discover your power with Python!
 

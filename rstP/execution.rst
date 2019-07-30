@@ -21,28 +21,44 @@ It is time to put longer collections of instructions together. That
 is most easily done by creating a text file and running the Python
 interpreter on the file. Idle simplifies that process.
 
-First you can put an existing file into an Idle Edit Window. Click
-on the Idle :guilabel:`File` menu and select :guilabel:`Open`.
-(Or as you see, you can use
-the shortcut :kbd:`Ctrl-O`. That means holding down the :kbd:`Ctrl`
-key, and
-pressing the letter :kbd:`O` for Open.) You should get a file selection
-dialog. You should have the sample program madlib.py displayed in
-the list. Select it and open it. (If you do not see the program,
-then you either failed to download the example programs in 
-:ref:`Your-Python-Folder`, or you did not start Idle in the
-proper folder in :ref:`Starting-Idle`.)
+First you can put an existing file into an Idle Edit Window. Start with 
+the sample program madlib.py.  If you have not downloaded it yet, see
+:ref:`Your-Python-Folder`. 
 
-.. index:: shell; Mac default folder
+Assuming you are already in Idle from the previous sections, 
+you can open a file from there:
 
-Mac
-    In Windows it does not matter whether you go to the filemenu of
-    the Shell Window or an edit window, but it does make a difference
-    on a Mac:
-    If you use the Idle File menu when the Shell window is active,
-    your search will start in your Documents folder,
-    but if some file editing window is active instead,
-    your search will start in its folder (generally the desired behavior). 
+-   Click on the Idle :guilabel:`File` menu and select :guilabel:`Open`.
+    (Or as you see, you can use
+    the shortcut :kbd:`Ctrl-O`. 
+    That means holding down the :kbd:`Ctrl` key, and
+    pressing the letter :kbd:`O` for Open.) You should get a file selection
+    dialog. 
+-   You need to navigate to the folder with the file you want.  
+    If you already had a file open, 
+    and its window has the foreground focus when you make access the File menu, 
+    then the folder that opens is the same as the folder from
+    which the current file came.  
+
+    If the Shell Window has the foreground focus, 
+    then the folder opened depends on the operating system:
+
+    *  Windows: 
+       At least through Python 3.7,
+       Windows is likely to open a buried system folder 
+       that you *do not want to mess with*!  
+       Switch to your Desktop or Documents, and find the right folder from there.  
+       Hopefully the behaviour will be more like on a Mac in future
+       version.
+
+    *  Mac and Linux: A reasonable folder opens: Documents. 
+       Navigate from there.
+    
+    **Hence it is important to set the focus on an Edit window to have
+    the same folder appear when opening a new file.**
+
+ -  Select the file you want. (The initial suggestion was madlib.py.)
+
 
 .. index::
    double: Idle; running a program
@@ -50,7 +66,7 @@ Mac
 
 You will see the source code again. Now run this program from
 inside of Idle: Go to the :guilabel:`Run` menu of that Edit window, and select
-:guilabel:`Run Module`. Notice the shortcut (F5).
+:guilabel:`Run Module`. Notice the shortcut (F5) also available.
 
 If the Shell window does not automatically come to the foreground,
 select it. You should see a line saying ``RESTART`` and then the
@@ -61,58 +77,50 @@ to the interpreter prompt: ``>>>``
 
 Look at the editor window again. You should see that different
 parts of the code have different colors. String literals are likely
-green. The reserved words ``def`` are likely orange. Look at the
+green. The reserved word ``def`` is likely orange. Look at the
 last two lines, where the identifier ``tellStory`` is black, and
 the identifier ``input`` is likely purple. Only identifiers that
-are not predefined by Python are black. If *you* create an
+are *not* predefined by Python are black. If *you* create an
 identifier name, make sure Idle shows it in *black*.
 
 .. index::
    Idle; bug running a Python 3.2 program
 
-.. _A-Bug-Possible:
+.. _idle-for-editing:
 
-A Pre Python 3.3 Idle Bug 
+Starting Idle for Editing 
 --------------------------------------------------------
 
-*Luckily this bug was fixed for Python 3.3*, but if for some reason you are using
-an older version and cannot update to the current version, read on:
-  
-When you execute a program from the Idle Editor, the interpreter
-gives a banner saying ``RESTART``, meaning that all the things you
-defined in any shell session so far are wiped clean and the program
-you are running starts fresh. There is one egregious exception to
-that, that was still present at least in the version of Idle for
-Python 3.1 in Windows. We will try to demonstrate the bug. (A *bug*
-is an error in a program.)
+You are strongly suggested to keep the programs you write in the given
+examples folder along with all the examples provided to you.
+You can always easily see the files you created, all together, by
+sorting by creation date.  You are likely to create
+new programs derived from some of the given examples, and
+some earlier programs of your own.  Everything is easy to access
+if you keep them together.  
 
-Start running the Mad Lib program again by going to the Editor
-Window containing madlib.py, and start running the program again,
-but do not continue....
+The way I recommended to start Idle to work on this tutorial is 
+to start by opening it on a file in the folder where you want to work, 
+either a file you want to further edit, a related file you want to modify,
+or just any Python file in the same folder if you want to start from scratch.
 
-You should see a prompt for user input generated by the program.
-Ignore this prompt and go back to the Edit Window and start the Mad
-Lib program again.
+To open Idle with an initial file to edit,
+select the Python file in an operating system window,
+right click (Windows) or control-click (Mac),
+to get a pop-up window to select how to open the file.
+On Windows, the line for Idle requires you to open a sub-menu.
+Select Idle for the latest version.
 
-If this bug is still present, you should see a difference in this
-restart: This time after the RESTART banner and the interpreter
-prompt: ``>>>``, which looks innocent enough, but this program
-*should* show the *program's* prompt string for input, and with
-the bug, Idle does not show the program's prompt.
+Opening Idle without a file reference, 
+directly from the operating system, 
+makes the associated folder
+for opening and saving files be the same *wrong* one as
+described in the previous section from inside Idle, 
+when the Shell Window has foreground focus.
 
-The problem only comes up because you interrupted the last
-execution *when user input was being waited for*. The restart was not
-complete here: The system is still looking for the pending user
-input from the last execution.
+Alternate approaches to starting Idle
+are discussed in the operating specific appendix sections.
 
-The fix is simple: Make sure the Interpreter Window is the
-currently selected window, and press return to terminate the lost
-user input. In some circumstances, you may need to press return a
-second time.
-
-After that the program should start up normally with its prompt.
-
-Watch out for this behavior, and remember the fix.
 
 .. index::
    double: running a program; Hello world
@@ -122,44 +130,41 @@ Watch out for this behavior, and remember the fix.
 The Classic First Program
 -------------------------
 
-Make sure you have Idle started in your Python directory (in
-Windows with the provided Idle shortcut link), where you will store
-program files.
+Have Idle started as in the previous section,
+so some Python file has the foreground focus.
 
-.. warning::
-   Do *not* start Idle from the Windows Start Menu!
-    
-If you just started Idle now, you may already have a blank Edit
-Window in front of you. If not, open a new window by going to the
-File menu and selecting New Window. This gives you a rather
+Open a new window by going to the
+:menuselection:`File` menu and selecting :menuselection:`New File`. 
+This gives you a rather
 conventional text editing window with the mouse available, ability
 to cut and paste, plus a few special options for Python.
 
-Type (or paste) the following into the *editor* window::
+Type (or paste) the following into the *editor* window (not the Shell Window)::
 
     print('Hello world!')
+
+.. index:: save in Idle
+   Idle; save
 
 Save the file with the menu sequence :menuselection:`File --> Save`,
 and then enter the file
 name ``hello.py``. Python program files should always be given a
-name ending in ".py", and you must enter the .py extension
-explicitly .
-
-.. index::
-   shell; Mac Save As
-   Mac; Idle Save As
+name ending in ".py".  If you give no extension, ".py" is assumed.
+You can also enter it explicitly.
    
-Mac
-    Save updates a file using its current name.
-    If you want to save a copy to a different name, you must be careful:
-    use :menuselection:`File --> Save Copy As`, *NOT*
-    :menuselection:`File --> Save As`.
-    The latter saves a copy of the Shell history,
-    not the program you are editing!
-    Sometimes you might want a record of the Shell history,
-    but this is not usually what you want.
+There are also the options :menuselection:`File --> Save As` and
+:menuselection:`File --> Save Copy As`.  Both
+save a copy to a different name, but only
+:menuselection:`File --> Save As` changes the name of
+the file you are editing in Idle.
 
-If you look in the editor, you should see that your text is color
+.. warning::
+   It is the contents of the foreground Idle window that get saved.
+   You are unlikely to mean to save the contents of the Shell
+   window, but it is easy for that window to have the focus
+   when you mean to save a program in an edit window.  
+
+**Syntax coloring**: If you look in the editor, you should see that your text is color
 coded. The editor will color different parts of Python syntax in
 special colors. 
 
@@ -212,7 +217,7 @@ print function and get the exchange between you and the Shell::
     The three lines above are *not* a program you could save in a file
     and run. This is just an exchange in the *Shell*, with its
     ``>>>`` prompts, individual
-    line to execute and the response. 
+    line to execute, and the response. 
 
     Again, just the single line, with
     no ``>>>``, ::
@@ -220,7 +225,7 @@ print function and get the exchange between you and the Shell::
         print('Hello world!') 
 
     entered into the *Edit* window forms a program you can save and
-    run. 
+    run. The ``>>>`` prompts have no place in a Python program file.
 
 We will shortly get to more interesting many-statement
 programs, where it is much more convenient to use the Edit window
@@ -231,8 +236,9 @@ than the Shell!
 It will be explicitly stated when you should run a program directly
 from the operating system.   
 
-In general it is fine to run our programs
-from a cmd console (Windows) or terminal (Mac).   
+In general it is also fine to run our programs
+from a cmd console (Windows) or terminal (Mac) 
+or from a different development environment.   
 
 .. warning::
 
@@ -241,7 +247,8 @@ from a cmd console (Windows) or terminal (Mac).
    The program ends and the window automatically closes before you can
    see the final output.  
    
-On a Mac you get to explicitly close the terminal window created when you run a Python
+On a Mac you get to explicitly close the verbose terminal window 
+created when you run a Python
 program from the Finder.
 
 
@@ -253,7 +260,7 @@ program from the Finder.
 Program Documentation String
 ----------------------------
 
-The program above is self evident, and shows how short and direct a
+The hello program above is self evident, and shows how short and direct a
 program can be (unlike other languages such as Java). Still, right
 away, get used to documenting a program. Python has a special
 feature: If the beginning of a program is just a quoted string,
@@ -272,7 +279,7 @@ included for better human understanding. Avoid making comments that
 do not really aid human understanding. (Do what I say, not what I
 did above.) Good introductory comment strings and appropriate names
 for the parts of your programs make fewer ``#`` symbol comments
-needed.
+needed!
 
 Run the program and see the documentation and comment make no
 difference in the result.
@@ -286,22 +293,14 @@ Screen Layout
 -------------
 
 Of course you can arrange the windows on your computer screen any
-way that you like. A suggestion as you start to use the combination
+way that you like. A suggestion is to display the combination
 of the editor to write, the shell to run, and the tutorial to
-follow along: Make all three mostly visible your computer screen at
-once. Drag the editor window to the upper left. Place the Shell
-window to the lower left, and perhaps reduce its height a bit so
-there is not much overlap. If you are looking at the web version of
-the tutorial on the screen, make it go top to bottom on the right,
-but not overlap the Idle windows too much. The web page rendering
-should generally adapt to the width pretty well. You can always
-temporarily maximize the window. Before resizing the browser
-window, it is good to look for an unusual phrase on your page, and
-search for it after resizing, since resizing can totally mess up
-your location in the web page.
+follow along. 
 
 There is an alternative to maximization for the Idle editor window:
 It you want it to go top to bottom of the screen but not widen, you
-can toggle that state with :kbd:`Alt-2`. Play with all this.
+can toggle that state with 
+:menuselection:`Options -> Zoom Height` or the keyboard shortcut
+shown beside it.
 
 

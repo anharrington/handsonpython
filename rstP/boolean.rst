@@ -48,8 +48,8 @@ are
 -  The special value ``None``
 
 -  Any empty sequence or collection, including the empty
-   string(``''``, but not ``'0'`` or ``'hi'`` or ``'False')`` and the
-   empty list (``[]``, but not ``[1,2, 3]`` or ``[0]``)
+   string (``''``, but not ``'0'`` or ``'hi'`` or ``'False')`` and the
+   including empty list (``[]``, but not ``[1,2, 3]`` or ``[0]``)
 
 A possibly useful consequence occurs in the fairly common situation
 where something needs to be done with a list only if it is
@@ -69,7 +69,7 @@ to accept 'y' or 'yes' as indicating True. You might write the
 following *incorrect* code. *Read* it::
 
     ans = input('Is this OK? ') 
-    if  ans == 'y' or 'yes': 
+    if ans == 'y' or 'yes': 
         print('Yes, it is OK') 
 
 The problem is that there are two binary operations here: ``==``,
@@ -82,24 +82,25 @@ condition above can be rewritten equivalently with parentheses.
 
 Other programming languages have the advantage of stopping with an
 error at such an expression, since a string like ``'yes'`` is not
-Boolean. Python, however, accepts the expression, and treats
-``'yes'`` as ``True``! To test, *run* the example program
+of type bool. Python, however, accepts the expression, and treats
+``'yes'`` as ``True``. To test, *run* the example program
 ``boolConfusion.py``, shown below:
 
 .. literalinclude:: ../examples/boolConfusion.py
    :lines: 3-
 
-Python detects no error. The ``or`` expression is always treated as
+Python detects no error. The ``or`` expression is treated as
 ``True``, since ``'yes'`` is a non-empty sequence, interpreted as
 ``True``.
 
-The intention of the ``if`` condition presumably was something
+The intention of someone writing ::
+
+   if ans == 'y' or 'yes':
+
+presumably was that the condition meant something
 like ::
 
     (ans == 'y') or (ans == 'yes')
-
-.. index:: in boolean operator on sequence
-   sequence; in as boolean operator
    
 This version also translates directly to other languages. Another
 correct Pythonic alternative that groups the alternate values
@@ -107,30 +108,29 @@ together is ::
 
     ans in ['y', 'yes']
 
-which reads pretty much like English. It is true if ``ans`` is in
-the specified list. The ``in`` operator actually works with any
-sequence. The general syntax is 
-
-    *value* ``in`` *sequence*
-
-This is true when value is an element of the sequence.
+which reads pretty much like English. 
 
 Be careful to use a correct expression when you want to specify a
 condition like this.
+
+.. index::
+   single:  and; non-boolean operands
+   single:  or; non-boolean operands
 
 Things get even stranger! Enter these conditions themselves, one at
 a time, directly into the *Shell*::
 
     'y' == 'y' or 'yes' 
     'no' == 'y' or 'yes' 
+    'y' == 'y' and 'yes' 
+    'no' == 'y' and 'yes' 
+    'no' or 'yes'
+    'no' and 'yes'
 
-.. index::
-   single:  and; non-boolean operands
-   single:  or; non-boolean operands
-
-The meaning of ``(a or b)`` is exactly as discussed so far *if*
-each of the operands ``a`` and ``b`` are actually Boolean, but a
-more elaborate definition is needed if an operand is not Boolean. ::
+The meaning of ``(a or b)`` and of ``(a and b)`` 
+are exactly as discussed so far *if*
+each of the operands ``a`` and ``b`` are *actually* Boolean, but
+more elaborate definitions are needed if an operand is not Boolean::
 
      val = a or b
 
@@ -163,7 +163,7 @@ if you like:
 which sets ``color`` to the value of ``defaultColor`` if the user
 enters an empty string.
 
-Again, this may be useful to experienced programmers. The syntax
+Again, this may be useful to experienced programmers, bhe syntax
 can certainly cause difficult bugs, particularly for beginners!
 
 The ``not`` operator always produces a result of type bool.

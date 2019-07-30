@@ -26,7 +26,7 @@ We shall illustrate a creative process. This is a bigger problem
 than any we have taken on so far. It is hard to illustrate a
 creative process if the overall problem is too simple.
 
-Try and follow along. *Read* the sample code and pseudocode.
+Try and follow along. *Read* the sample code and pseudo-code.
 
 *There is nothing to try in the Shell or editor until further notice.*
 
@@ -298,11 +298,6 @@ the pieces fit together.
 
 ..
    ]]
-
-After Python file manipulation is introduced, in
-:ref:`Write-madlib3.py`, you can modify the program to work
-on a madlib format string chosen by the user and taken from a
-file.
 
 Substring Locations Exercise
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

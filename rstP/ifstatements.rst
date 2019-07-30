@@ -24,11 +24,17 @@ translate from math into Python. Try each line separately in the
     2 * x < x 
     type(True) 
 
-You see that conditions are either ``True`` or ``False`` (with no
-quotes!). These are the only possible *Boolean* values (named after
+You see that conditions are either ``True`` or ``False``. 
+These are the only possible *Boolean* values (named after
 19th century mathematician George Boole). In Python the name
 Boolean is shortened to the type ``bool``. It is the type of the
 results of true-false conditions or tests.
+
+.. note::
+   The Boolean values ``True`` and ``False`` have no quotes around them!
+   Just as ``'123'`` is a string and ``123`` without the quotes is not,
+   ``'True'`` is a string, not of type bool.
+   
 
 .. _Simple-if-Statements:
     
@@ -107,9 +113,11 @@ heading is true. In the |if-else| form this is followed by an
 executed when the original condition is *false*. In an |if-else|
 statement exactly one of two possible indented blocks is executed.
 
-A line is also shown **out**\ dented next, about getting exercise.
-Since it is outdented, it is not a part of the if-else statement:
-It is always executed in the normal forward flow of statements,
+A line is also shown **de**\ dented next, 
+removing indentation, about getting exercise.
+Since it is dedented, it is not a part of the if-else statement:
+Since its amount of indentation matches the ``if`` heading,
+it is always executed in the normal forward flow of statements,
 after the |if-else| statement (whichever block is selected).
 
 The general Python |if-else| syntax is
@@ -168,7 +176,7 @@ for *assignment* in Python, so it is not available for tests.
 
 Tests for equality do not make an assignment, and they do not
 require a variable on the left. Any expressions can be tested for
-equality or inequality (!=). They do not need to be numbers!
+equality or inequality (``!=``). They do not need to be numbers!
 Predict the results and try each line in the *Shell*::
 
     x = 5 
@@ -235,6 +243,39 @@ solve the same problem!
 .. literalinclude:: ../examples/wages1.py
    :lines: 7-13
 
+.. index::
+   in boolean operator on sequence
+   not in
+   boolean; operations in + not in
+        
+**The** ``in`` **boolean operator**:
+    There are also Boolean operators that are applied to types 
+    others than numbers.
+    A useful Boolean operator is ``in``, checking membership in a sequence::
+
+       >>> vals = ['this', 'is', 'it]
+       >>> 'is' in vals
+       True
+       >>> 'was' in vals
+       False         
+
+    It can also be used with ``not``, as ``not in``, to mean the opposite::
+
+       >>> vals = ['this', 'is', 'it]
+       >>> 'is' not in vals
+       False
+       >>> 'was' not in vals
+       True         
+
+    In general the two versions are:
+
+        | *item* ``in`` *sequence*
+        | *item* ``not in`` *sequence*
+    
+
+**Detecting the need for** ``if`` **statements**: 
+Like with planning programs needing``for`` statements, you want to be able to translate English descriptions of problems that would naturally include ``if`` or |if-else| statements.  What are some words or phrases or ideas that suggest the use of
+these statements?  Think of your own and then compare to a few I gave: [#]_
 
 .. _graduateEx:
    
@@ -343,7 +384,7 @@ The most elaborate syntax for an
     |    indentedStatementBlockForEachConditionFalse 
 
 
-The ``if``, each ``elif``, and the final ``else`` line are all
+The ``if``, each ``elif``, and the final ``else`` lines are all
 aligned. There can be any number of ``elif`` lines, each followed
 by an indented block. (Three happen to be illustrated above.) With
 this construction *exactly* *one* of the indented blocks is
@@ -392,11 +433,13 @@ Grade Exercise
 
 In Idle, load ``grade1.py`` and save it as ``grade2.py`` Modify
 ``grade2.py`` so it has an equivalent version of the letterGrade
-function that tests in the opposite order, first for F, then D, C,
-.... Hint: How many tests do you need to do? [#]_
+function that tests in the opposite order, first for F, then D, C, .... 
+Hint: How many tests do you need to do? [#]_
 
 Be sure to run your new version and test with different
 inputs that test all the different paths through the program.
+Be careful to test around cut-off points.  
+What does a grade of 79.6 imply?  What about exactly 80?
 
 Wages Exercise
 ~~~~~~~~~~~~~~              
@@ -413,7 +456,11 @@ with a regular wage of $10 per hour would work at $10 per hour for
 
 You may find ``wages1.py`` easier to adapt than ``wages.py``.
 
-
+Be sure to test all paths through the program!  
+Your program is likely to be a modification of a program where
+some choices worked before, but once you change things,
+retest for all the cases!  Changes can mess up things
+that worked before.
 
 
 .. index:: nested control statements
@@ -448,7 +495,7 @@ for *some* of them.  That seems like
 a major obstacle, but think closer at what needs to happen concretely.
 As a human, who has eyes of amazing capacity, you are drawn
 immediately to the actual correct numbers, 3, 2, and 7, but clearly
-a computer doing this systematically will have to check *every*
+a computer doing this systematically will have to *check every*
 number. In fact,
 there is a *consistent* action required: Every number must be
 tested to see *if* it should be printed. This suggests an ``if``
@@ -557,7 +604,8 @@ Note that the middle ``if`` is *not* changed to an ``elif``,
 because it is possible for the ball to reach a *corner*, and need
 both ``dx`` and ``dy`` reversed.
 
-The program also uses several accessor methods for graphics objects
+The program also uses several methods to read 
+part of the state of graphics objects
 that we have not used in examples yet. Various graphics objects,
 like the circle we are using as the shape, know their center point,
 and it can be accessed with the ``getCenter()`` method. (Actually a
@@ -615,7 +663,7 @@ with the ``len`` function.
 
 The function documentation here models a common
 approach:  illustrating the behavior of the function with a Python Shell
-interaction.  This begins with a line starting with ``>>>``.
+interaction.  This part begins with a line starting with ``>>>``.
 Other exercises and examples will also document behavior in the Shell.
 
 Even Print Exercise
@@ -650,7 +698,8 @@ Write a program ``even2.py`` with a function ``chooseEven`` with heading::
         '''
 
 In your main program, test the function, calling it several times
-with different lists of integers and printing the results.  Hint:
+with different lists of integers and printing the results in the main program. 
+Hint:
 Create a new list, and append the appropriate numbers to it.
 
 .. _unique-list-ex:
@@ -679,33 +728,7 @@ Copy ``madlib2.py`` to ``madlib2a.py``, and add a function with this heading::
         ['cat', 'dog', 'bug', 'ant']
         '''
 
-.. index::
-   in boolean operator on sequence
-   not in
-   boolean; operations in + not in
-        
-A useful Boolean operator is ``in``, checking membership in a sequence::
-
-   >>> vals = ['this', 'is', 'it]
-   >>> 'is' in vals
-   True
-   >>> 'was' in vals
-   False         
-
-It can also be used with ``not``, as ``not in``, to mean the opposite::
-
-   >>> vals = ['this', 'is', 'it]
-   >>> 'is' not in vals
-   False
-   >>> 'was' not in vals
-   True         
-
-In general the two versions are:
-
-    | *item* ``in`` *sequence*
-    | *item* ``not in`` *sequence*
-    
-Hint: Process ``aList`` in order.  Use the new syntax to
+Hint: Process ``aList`` in order.  Use the ``in`` syntax to
 only append elements to a new list that are not 
 already in the new list.    
 
@@ -748,7 +771,7 @@ The new Python syntax is for the operator ``and``:
     *condition1* ``and`` *condition2*
 
 The compound condition is true if both of the component conditions
-are true. It is false if at least one of the conditions is false.
+are true. It is false if *at least* one of the conditions is false.
 
 See :ref:`congressEx`.
 
@@ -850,7 +873,7 @@ A correct but redundant function body would be::
         return False 
 
 Check the meaning: if the compound expression is ``True``, return ``True``.
-If the condition is ``False``, return ``False`` - in either case return the
+If the condition is ``False``, return ``False`` -- in either case return the
 *same* value as the test condition. See that a much simpler and
 neater version is to just return the value of the condition
 itself!  ::
@@ -951,7 +974,7 @@ statement, but there are no unmatched parentheses on a line. For
 readability it is best *not* to make an enormous long line that
 would run off your screen or paper. Continuing to the next line is
 recommended. You can make the *final* character on a line be a
-backslash (\\) to indicate the statement continues on the next
+backslash (``'\\'``) to indicate the statement continues on the next
 line. This is not particularly neat, but it is a rather rare
 situation. Most statements fit neatly on one line, and the creator
 of Python decided it was best to make the syntax simple in the most
@@ -982,10 +1005,9 @@ who is at least 25 years old and has been a US citizen for at least
 and length of citizenship and prints out just the *one* of the following
 three statements that is accurate:
 
-#. You are eligible for both the House and Senate.
-#. You eligible only for the House.
-#. You are ineligible for Congress.
-
+* You are eligible for both the House and Senate.
+* You eligible only for the House.
+* You are ineligible for Congress.
 
 
 .. index::
@@ -999,7 +1021,8 @@ three statements that is accurate:
 More String Methods
 -----------------------
 
-Here are a few more string methods useful in the next exercises:
+Here are a few more string methods useful in the next exercises,
+assuming the methods are applied to a string ``s``:
 
 * *s*\ ``.startswith(`` *pre* ``)``
 
@@ -1023,7 +1046,8 @@ Here are a few more string methods useful in the next exercises:
 	  t = s.replace('-', '', 1) # t equals '123'
 	  t = t.replace('-', '', 1) # t is still equal to '123'
 	  u = '.2.3.4.'
-	  v = u.replace('.', '', 2) # v equals '23.4.'
+    v = u.replace('.', '', 2) # v equals '23.4.'
+    w = u.replace('.', ' dot ', 5) # w equals '2 dot 3 dot 4 dot '
 
 .. _Article-Start-Ex:
 
@@ -1076,12 +1100,17 @@ a.  Recognizing an integer string is more involved,
     Complete the function ``isIntStr``.      
 
 b.  Complete the function ``isDecimalStr``, which introduces the possibility
-    of a decimal point.  The string methods mentioned
+    of a decimal point (though a decimal point is not required).  The string methods mentioned
     in the previous part remain useful.
 
 
 .. [#]
-   This is an improvement that is new in Python 3.0
+   This is an improvement that is new in Python 3.
+
+.. [#]
+   "In this case do ___; otherwise", "if ___, then", 
+   "when ___ is true, then", "___ depends on whether",
+
 
 .. [#]
    If you divide an even number by 2, what is the remainder?  Use this idea

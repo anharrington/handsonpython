@@ -101,6 +101,7 @@ latexpdf:
 	$(SPHINXBUILD) -q -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
 	@echo "Running LaTeX files through pdflatex..."
 	./texFix.py $(BUILDDIR)/latex/Hands-onPythonTutorial.tex
+#	cp ./MakeIndexPDFfile $(BUILDDIR)/latex/Makefile
 	make -C $(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
 

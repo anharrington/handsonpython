@@ -3,18 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Hands-on Python Tutorial
-========================
-
-Python 3.1 Version
+Hands-on Python 3 Tutorial
+==========================
 
 Dr. Andrew N. Harrington 
 
 Computer Science Department, Loyola University Chicago 
 
-© Released under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License
-http://creativecommons.org/licenses/by-nc-sa/3.0/us/
-
+© Released under the Creative Commons Attribution-Noncommercial-Share Alike 4.0 United States License
+https://creativecommons.org/licenses/by-nc-sa/4.0/
 ---------------
 
 .. toctree::
@@ -25,6 +22,7 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/us/
    ch2
    ch3
    ch4
+   appendices
 
 :ref:`genindex`
 

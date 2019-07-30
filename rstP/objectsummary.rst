@@ -75,7 +75,7 @@ The same typographical conventions will be used as in :ref:`introSummary`.
 
          Returns the index in *s* of the first character of the first
          occurrence of the substring *sub* within the part of the string *s*
-         indicated, respectively the whole string *s*,
+         indicated, respectively the whole string *s*, or
          *s*\ ``[`` *start* ``: ]``, or
          *s*\ ``[`` *start* ``:`` *end* ``]``, where
          *start* and *end* have integer values. [:ref:`Object-Orientation`]
@@ -97,7 +97,7 @@ The same typographical conventions will be used as in :ref:`introSummary`.
          [:ref:`join`]
 
       #. Further string methods are discussed in the Python Reference
-         Manual, Section 2.3.6.1, String Methods.
+         Manual, in the section on built-in types.
          [:ref:`Further-Exploration`]
 
 #. Sets
@@ -135,8 +135,6 @@ The same typographical conventions will be used as in :ref:`introSummary`.
 
    #.  If *infile* is a file opened for reading, and *outfile* is
        a file opened for writing, then
-
-           ..
    
                *infile*\ ``.read()``
 

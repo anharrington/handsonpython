@@ -28,14 +28,6 @@ Summary
    is True if *value* is one of the elements in the
    *sequence*.
 
-#. Interpretation as Boolean (``True``, ``False``):
-   All Python data may be converted to Boolean (type ``bool``). The
-   only built-in data that have a Boolean meaning of ``False``,
-   in addition to
-   ``False`` itself, are ``None``, numeric values equal to 0, and
-   empty collections or sequences, like the empty list {[]}and the
-   empty string ``''``. [:ref:`Arbitrary-Types-Bool`]
-
 #. Operators on Boolean expressions
    [:ref:`Compound-Boolean-Expressions`]
 
@@ -155,6 +147,14 @@ Summary
    #. A tuple is a kind of sequence.
 
    #. Tuples, unlike lists, are immutable (may not be altered).
+
+#. Interpretation as Boolean (``True``, ``False``):
+   All Python data may be converted to Boolean (type ``bool``). The
+   only built-in data that have a Boolean meaning of ``False``,
+   in addition to
+   ``False`` itself, are ``None``, numeric values equal to 0, and
+   empty collections or sequences, like the empty list {[]}and the
+   empty string ``''``. [:ref:`Arbitrary-Types-Bool`]
 
 #. Additional programming techniques
    

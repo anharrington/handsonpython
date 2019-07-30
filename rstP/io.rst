@@ -29,8 +29,9 @@ Run the program. In the Shell you should see ::
 
 .. index:: shell; program input
 
-Follow the instruction (and press Enter). Make sure the typing
-cursor is in the Shell window, at the end of this line. After you
+Make sure the typing
+cursor is in the Shell window, at the end of this line. 
+Then follow the instruction (and press Enter). After you
 type your response, you can see that the program has taken in the
 line you typed. That is what the built-in function ``input`` does:
 First it prints the string you give as a parameter (in this case
@@ -98,8 +99,13 @@ following example file, hello_you2.py:
 
 Try the program.
 
-Keyword paramaters must be listed at the end of the parameter
-list.
+Keyword parameters must be listed at the end of the parameter
+list.  They have the keyword name, followed by an equal sign,
+before the value being given.  We will see another example shortly.
+
+It is a standard Python convention that when giving a keyword and value,
+the equal sign has *no* space on either side.  (This is the only place
+you are not encouraged to set off an equal sign with spaces.) 
 
 .. index::
    int; digit string
@@ -116,7 +122,7 @@ user entered 2 and 3, you would print 'The sum of 2 and 3 is 5.'
 
 You might imagine a solution like the example file
 ``addition1.py``, shown below. There is a problem. Can you figure
-it out before you try it? Hint: [#]_  
+it out before you try running it? Hint: [#]_  
 
 .. literalinclude:: ../examples/addition1.py
    :language: python3
@@ -176,7 +182,7 @@ Exercise for Quotients
 
 Write a program, ``quotient.py``, that
 prompts the user for two integers, and then prints them out in a
-sentence with an integer division problem like ::
+sentence with an integer division problem in a form just like ::
 
    The quotient of 14 and 3 is 4 with a remainder of 2
 
@@ -219,7 +225,7 @@ Objects have a special syntax for functions, called *methods*,
 associated with the *particular type of object*. In particular
 ``str`` objects have a method called ``format``. The syntax for
 methods has the object followed by a period followed by the method
-name, and further parameters in parentheses.
+name, and any further parameters in parentheses.
 
     *object*.\ *methodname*\ ``(``\ *parameters*\ ``)``
 
@@ -264,7 +270,7 @@ formatting. Using our grade school analogy, the idea is to fill in the blanks in
 There are multiple places to substitute, and the format approach
 can be extended to multiple substitutions: Each place in the format
 string where there is ``'{}'``, the ``format`` operation will
-substitute the value of the next parameter in the format parameter
+substitute the value of the *next* parameter in the format parameter
 list.
 
 Run the example file ``interview2.py``, and check that the results
@@ -363,5 +369,5 @@ Quotient Format Exercise
 Write a version of the quotient problem in :ref:`QuotientProblem`,
 :file:`quotientformat.py`, that uses the string format method to
 construct the same final string as before.  Again be sure to give a full sentence
-stating both the integer quotient and the remainder.
+including the initial numbers and both the integer quotient and the remainder.
 

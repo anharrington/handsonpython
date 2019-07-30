@@ -45,7 +45,8 @@ special symbols. We will consider more ways later in
 ..  note::
     A string can have any number of characters in it, including 0. The
     empty string is ``''`` (two quote characters with nothing between
-    them).  Many beginners forget that having no characters is legal. 
+    them).  Many beginners forget that having no characters 
+    in the middle is legal. 
     It can be useful.
 
 Strings are a new Python type. Try ::
@@ -107,7 +108,7 @@ expression, and does not guess which you want - it just gives an
 error!  [#]_
 
 This is a traceback error.  These occur when the code is being executed.
-In the last two lines it shows the line where the error was found, and then
+In the last two lines of the traceback it shows the Python line where the error was found, and then
 a reason for the error.  Not all reasons are immediately intelligible to
 a starting programmer, but they are certainly worth checking out.  In this
 case it is pretty direct.  You need to make an explicit conversion, 
@@ -125,8 +126,8 @@ String Exercise
 ~~~~~~~~~~~~~~~
    
 Figure out a *compact* way to get Python to make the string,
-``YesYesYesYesYes``, and try it. How about
-``MaybeMaybeMaybeYesYesYesYesYes``? Hint:  [#]_
+``'YesYesYesYesYes'``, and try it. How about
+``'MaybeMaybeMaybeYesYesYesYesYes'``? Hint:  [#]_
 
 .. [#]
    Be careful if you are a Java or C# programmer! This is unlike those languages, where

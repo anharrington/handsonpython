@@ -3,7 +3,7 @@
 Summary
 =======
 
-#. The Overall Process for Creating Dynamic Web Pages
+A. The Overall Process for Creating Dynamic Web Pages
 
    Making dynamic web pages has a number of steps. I have suggested
    several ways of decoupling the parts, so you can alter the order,
@@ -32,10 +32,19 @@ Summary
    #. When you are confident about your ``processInput`` function, put
       it in a program with the proper cgi skeleton, and add the necessary
       lines at the beginning of the ``main`` function to take all the CGI
-      script input from the browser data. [:ref:`adder.cgi <adder.cgi>`]
+      script input from the browser data. 
+      Include all the variable names you need in the actual parameter list
+      for calling ``processInput``.  They should match up
+      with the formal parameters you wrote earlier for 
+      the definition of ``processInput``.
+      [:ref:`adder.cgi <adder.cgi>`]
 
-   #. Be sure to check for syntax errors in Idle, for instance using
-      :kbd:`Alt-X`.  Fix as necessary.
+   #. Be sure to check for syntax errors in Idle, 
+      by using the menu sequence :guilabel:`Run -> Check Module`.  
+      Fix as necessary.
+
+   #. Remember to run CGIfix.py in the same folder as a precaution to
+      clean things up, particularly with a new .cgi file on a Mac.
                                                        
    #. Finally test the whole thing with the local server.  Make sure the
       local server is running, and all the resources that you refer to are in
@@ -60,20 +69,15 @@ Summary
 
       * If you get nothing
         back in your web browser, make sure you had tested the final version
-        of the code in Idle for syntax errors (:kbd:`Alt-X`),
+        of the code in Idle for syntax errors 
+        (:guilabel:`Run -> Check Module`),
         and that you have the final error catching code in the CGI script,
         and that you used a URL that starts with ``http://localhost:8080/``.
 
-      * If all of the parts mentioned above are there, the problem may be
-        with the server, not Python.
+      * If all of the parts mentioned above are there, 
+        the problem may show in the server, not Python.
         Look in the local server window's log output,
         and see if it points to a filename that it cannot find or ....
-
-   #. If you have an account on a public server, it should not take
-      much more work than just uploading your files to make your creation
-      available to the whole world. You may have a public server with a
-      different configuration than the Loyola server. If so see this
-      note: [#]_
 
 #. Markup: Plain text may be *marked up* to include formatting. The
    formatting may be easily interpreted only by a computer, or it may
@@ -85,8 +89,8 @@ Summary
       start with '/'. For instance  
       ``<title>Computer Science</title>``.
       
-      #. Tags may be modified with attributes specified similar to Python
-         string assignments, for example the text input field tag, ::
+      Tags may be modified with attributes specified similar to Python
+      string assignments, for example the text input field tag, ::
 
              <input value="red" name="color" type="radio">
 
@@ -99,7 +103,7 @@ Summary
    [:ref:`Dynamically-Created-Static`]
 
 #. The ``webbrowser`` module has a function ``open``, that will
-   open a file or web URL in the default browser:
+   open a file or web URL in your default browser:
    [:ref:`Dynamically-Created-Static`]
    
        ``webbrowser.open(`` *filename* ``)``
@@ -152,10 +156,9 @@ Summary
       This case occurs if you have a number of checkboxes, all with the
       same name, but different values.  The list may be empty.
 
-
 #. Local Python Servers.
    
-   #. Python has modules for creating local testing servers that can
+   #. Python has a module for creating a local testing server that can
       handle static web pages and Python CGI
       scripts.[:ref:`CGI-Example`]
 
@@ -166,19 +169,3 @@ Summary
 #. A comparison of the various types of files used in web
    programming, listing the different ways to edit and use the files,
    is given in :ref:`Editing-and-Testing`.
-
-.. [#]
-   The tutorial assumed a server configured as follows: html pages and
-   CGI scripts can all be in the same directory, and the CGI scripts
-   end with .cgi. This is the convention on Loyola's Computer Science
-   public server. Another common configuration is that scripts
-   all go in a cgi-bin directory, where they just have the normal .py
-   suffix. If you have a server with the latter configuration, your
-   action URLs will be of the form cgi-bin/*someScript*.py. Depending
-   on the server configuration the current directory may or may not be
-   cgi-bin while the script executes. That may mean you need a path
-   before the file names for your output templates, or your need to be
-   careful what directory referenced files end up in. If you are
-   making arrangements for your own site on a public server, be sure
-   to check with your system administrator to find out what the
-   conventions are.

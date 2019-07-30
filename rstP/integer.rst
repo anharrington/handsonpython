@@ -33,7 +33,8 @@ Of course the first one does not require any calculation. It
 appears that the shell just echoes back what you printed. 
 
 The Python Shell is an interactive interpreter. As you can see,
-after you press Enter, it is evaluating the expression you typed
+after you press :kbd:`Return` (or Enter), 
+it is evaluating the expression you typed
 in, and then printing the result automatically. This is a very
 handy environment to check out simple Python syntax and get instant
 feedback. For more elaborate programs that you want to save, we
@@ -53,7 +54,7 @@ Try in the *Shell*::
 
     2 x 3
 
-You should get your first *syntax* error. The ``x`` should have
+You should get your first *syntax error*. The ``x`` should have
 become highlighted, indicating the location where the Python
 interpreter discovered that it cannot understand you: Python does
 not use ``x`` for multiplication as you may have done in grade school.
@@ -64,7 +65,8 @@ later).
 
 Instead the symbol for multiplication is an asterisk
 ``*``. Enter each of the following. You may include spaces or not.
-The Python interpreter can figure out what you mean either way. Try
+The Python interpreter can figure out what you mean either way. 
+(The space can make understanding quicker for a human reader.) Try
 in the *Shell*::
 
     2*5 
@@ -79,7 +81,7 @@ there are parentheses. Try ::
     2 * (4 - 1) 
 
 Now try the following in the *Shell*, exactly as written, followed
-by Enter, with *no* closing parenthesis::
+by :kbd:`Enter`, with *no* closing parenthesis::
 
     5 * (2 + 3
 
@@ -125,11 +127,11 @@ As you saw in the previous section, numbers with decimal points in
 them are of type float in Python. They are discussed more in
 :ref:`Floats-Division-Mixed`.
 
-In the earliest grades you would say
+In  early grade school you would likely say
 "14 divided by 4 is 3 with a remainder of 2". The problem here is
 that the answer is in two parts, the integer quotient 3 and the
 remainder 2, and neither of these results is the same as the
-decimal result. Python has separate operations to generate each
+decimal result. Python has *separate* operations to generate each
 part. Python uses the doubled division symbol ``//`` for the
 operation that produces just the integer quotient, and introduces
 the symbol ``%`` for the operation of finding the remainder. Try
@@ -150,4 +152,14 @@ Now predict and then try each of ::
 
 Finding remainders will prove more useful than you might think in
 the future!
+
+**Optional last part**: In grade school you were probably always doing such remainder calculations with positive integers, as we have above.  
+However, the remainder operation is defined for all integers,
+even a negative divisor.  We will *probably not need it*, but try ::
+
+   23 % -5
+   -23 % 5
+
+In Python (but not some other programming languages), the sign of the divisor
+always matched the sign of the remainder.  
 

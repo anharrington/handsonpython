@@ -177,7 +177,7 @@ as a function. *Read* these earlier examples::
     aSet = set(numberList)
 
 In all such cases a new object of the specified type is constructed
-and returned, and such functions are called *constructors*.
+and returned.  Such functions are called *constructors*.
 
 ..
    .. index::

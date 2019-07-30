@@ -13,27 +13,72 @@ below. All files below ending in '.cgi' are CGI programs on a web
 server, and in this chapter, they will all be Python programs
 (though there are many other languages in use for this purpose).
 These programs are often called scripts, so we will be dealing with
-*Python CGI scripts*.
+*Python CGI scripts*.  You cannot run a .cgi file from inside Idle.
 
 .. _CGI-Example:
 
 An Example in Operation
 -----------------------
 
-The first part of this section requires you to have access to the
-Internet. Later you will also see that you can illustrate the exact
-same actions on your own local machine.
 
 .. index::
    single: web page; execution sequence
 
-For a very simple but complete example, use your browser to go to
-the page on the public Loyola server,
-http://anh.cs.luc.edu/python/hands-on/3.1/examples/www/adder.html.
-You see a web *form*. Follow the instructions, enter numbers, and click
-on the :guilabel:`Find Sum` button. You get back a page that obviously used
-*your* data. This is the idea that you can generalize. First
-consider the basic execution steps behind the scene:
+The web examples folder provides a simple web server, built into Python, that you can
+run on your own computer.  (It is also possible to set your computer up 
+with the right software to be a server for the Internet - 
+that is totally unnecessary for this class.)
+
+Windows  
+  In an operating system file window, go to the folder with the www
+  examples. 
+  Double click on ``startServer.cmd``, 
+  which I have placed in the example www folder. If this does not work,
+  you probably need to modify your Python installation,
+  covered in :doc:`pythononwindows`
+
+Mac
+    This is more involved the first time.  See :doc:`pythononmac`.
+     
+You should see a console window pop up,
+saying "Localhost CGI server started". 
+This approach starts the ``localCGIServer.py`` server without monopolizing Idle.
+Once the server is
+started, *leave the server console window there*
+*as long as you want the local server running for that folder*. 
+
+.. warning::
+   Do *not* start the local server running from inside Idle.
+   It will monopolize Idle.
+
+.. note::
+   If the server aborts and gives an error message about
+   spaces in the path, look at the path through the parent directories
+   over this www directory. If any of the directory names have spaces
+   in them, the local file server will not work.
+
+In case of this error, either go up the
+directory chain and alter the directory names to eliminate spaces
+or move the examples directory to a directory that does not have
+this issue. 
+
+
+For a very simple but complete example:
+
+#. Make sure you have the local server going.
+#. Open the web link http://localhost:8080/adder.html 
+   (preferably in a new window, separate from this tutorial).
+#. You see a web *form*. Follow the instructions, enter numbers, and click
+   on the :guilabel:`Find Sum` button. 
+   You get back a page that obviously used *your* data.  
+#. Look at the server console window. You should see a log of the activity
+   with the server. 
+
+We will end up completely explaining the web pages and .cgi file
+needed to accomplish this, allowing you to generalize the idea,
+but for now just see how it works.
+
+First consider the rather involved basic execution steps behind the scene:
 
 #. The data you type is handled directly by the browser. It
    recognizes forms.
@@ -45,10 +90,13 @@ consider the basic execution steps behind the scene:
 #. In the cases we consider in this tutorial, the action is given
    as a web resource, giving the location of a CGI script on some
    server (in our cases, the same directory on the server as the
-   current web page).
+   current web page).  It is a resource handled by the local server,
+   when the URL starts with "http://localhost:8080/" followed by the
+   name of the starting web file.  *All the URL's you use*
+   *for this section and its exercises should start that way*.
 
 #. When you press the button, the browser sends the data that you
-   entered to that web location (in this case ``adder.cgi`` in the same
+   entered to that web location (in this case ``adder.cgi``, in the same
    folder as the original web page).
 
 #. The server recognizes the web resource as an executable script,
@@ -64,58 +112,27 @@ consider the basic execution steps behind the scene:
 
 #. You see the results in your browser.
 
-This also works *locally*, entirely on your own computer, using a
-simple server built into Python. (*Internet no longer needed!*)
 
-Windows  
-	In an operating system file window, go to the folder with the www
-	examples. Double click on ``localCGIServer.py`` to start the local,
-	internal, web server. You should see a console window pop up,
-	saying "Localhost CGI server started" . 
+*Close* the server window.
 
-Mac
-    This is more involved.  
-    See http://anh.cs.luc.edu/python/hands-on/3.1/pythonOnMac.html. 
-
-Once the server is
-started, leave the console window there as long as you want the
-local server running. 
-
-.. warning::
-   Do *not* start the local server running from inside Idle.
-
-.. note::
-   If the server aborts and gives an error message about
-   spaces in the path, look at the path through the parent directories
-   over this www directory. If any of the directory names have spaces
-   in them, the local file server will not work.
-
-In case of this error, either go up the
-directory chain and alter the directory names to eliminate spaces
-or move the examples directory to a directory that does not have
-this issue. In particular, you need to move your examples directory
-if it is under the 'My Programs' directory.
-
-Back in the www directory, *after you have the local server going*,
-
-#. Open the web link http://localhost:8080/adder.html (preferably
-   in a new window, separate from this tutorial).
-
-#. You should see an adder form in your browser again. Note that
-   the web address no longer includes 'cs.luc.edu'. Instead it starts
-   with 'localhost:8080', to reference the local Python server you
-   started. Fill out the form and test it as before.
-
-#. Look at the console window. You should see a log of the activity
-   with the server. *Close* the server window.
-
-#. Reload the web link http://localhost:8080/adder.html. You should
-   get an error, since you refer to localhost, but you just stopped
-   the local server.
+Test what happens if you 
+try to reload the web link http://localhost:8080/adder.html. You should
+get an error, since you refer to localhost, but you 
+*just stopped the local server*.
 
 For the rest of this chapter, we will be wanting to use the local
-server, so *restart* ``localCGIServer.py`` *from its operating system*
-*folder*, and *keep it going*.
+server, so *restart* it, by double clicking on the
+file in the example www folder appropriate for your operating system:
+
+* Windows: ``startServer.cmd``
+* Mac: ``cgiServerScript`` that you should have created
+  as you followed the initial cgi instructions in :doc:`pythononmac`.
+
+Now you can *keep it going* 
+as long as you want to run CGI scripts from the same folder.  
+
+If you ever want be have cgi scripts and supporting files
+in a different folder, *stop the server for any other folder* first. 
 
 A Simple Buildup
 ----------------
@@ -131,7 +148,7 @@ of even simpler examples.
 The simplest case is a CGI script with no input that just
 generates plain text, rather than HTML.
 *Assuming you have your local server going*, you can go to the link
-for hellotxt.cgi, http://localhost:8080/hellotxt.cgi. The code is
+http://localhost:8080/hellotxt.cgi. The code is
 in the www example directory, ``hellotxt.cgi``, and below for you
 to *read*:
 
@@ -140,8 +157,8 @@ to *read*:
 The top line is what tells the operating system that this is a Python 3
 program. It says where to find the right Python interpreter to process
 the rest of the script. This exact location is significant 
-on a Unix derived server (like the one Loyola's Computer Science Department
-uses or any Mac with OS X). In Windows the only thing important is the distinction
+on a Unix derived server (like any Mac with OS X). 
+In Windows the only thing important in the line is the distinction
 between Python 2 and 3.
 If you leave the line there
 as a part of your standard text, you have one less thing to think
@@ -169,13 +186,13 @@ directory, ``hellohtml.cgi``, and below for you to *read*:
 .. literalinclude:: ../examples/www/hellohtml.cgi
 
 There are two noteworthy changes. The *first* print function now
-declares the rest of the output will be *html*. This is the
-standard line you will be using for your CGI programs. The
+declares the rest of the output will be *html*. This is a
+standard boilerplate line you will be using for your CGI programs. The
 remaining print function has the markup for an html page. Note that
 the enclosing triple quotes work for a multi line string. Other
 than as a simple illustration, this CGI script has no utility: Just
 putting the contents of the last print function in a file for a
-static web page ``hello.html`` is much simpler.
+static web page ``hello.html`` would be much simpler.
 
 .. rubric:: now.cgi
 
@@ -253,8 +270,7 @@ First the overall structure of the code:
    one copied from the earlier local web page version,
    additionWeb.py.
 
-
--  At the end is the new, but standard, cgi wrapper code for
+-  At the end is the new, boilerplate cgi wrapper code for
    ``main()``. This is code that you can always just copy. I chose to
    put the initial ``print`` function here, that tells the server html
    is being produced. That mean the ``main`` method only needs to
@@ -263,14 +279,13 @@ First the overall structure of the code:
    program and generates possibly helpful trace information that you
    can see from your browser. (Writing such error catching code in
    general is not covered in this introductory tutorial,
-   but you can copy it!)
+   but you can copy it in this situation!)
 
 The ``main`` function has three sections, as in the local web page
-version: read input (this time from the form), process it, and
+version: read input (this time from the form, not the keyboard), process it, and
 generate the html output.
 
-
--  Reading input: The first line of main is a standard one (to
+-  Reading input: The first line of main is a standard one (for you to
    copy) that sets up an object called ``form`` that holds the CGI
    form data accompanying the web request sent by the browser. You
    access the form data with statements like the next two that have
@@ -287,15 +302,16 @@ generate the html output.
    data associated with names given by the browser can transferred to
    your Python CGI program. In this program the values associated with
    the browser-supplied names, 'x' and 'y', are extracted. I use
-   Python variable names that remind you that all values from the
+   slightly verbose Python variable names 
+   that remind you that all values from the
    browser forms are strings.
 
 -  The ``processInput`` function that is passed the input
-   parameters from whatever source, is exactly the same as in
+   parameters from whatever source, is *exactly the same* as in
    ``additionWeb.py``, so we already know it works!
 
 -  Output the page. In a CGI script this is easier than with the
-   local web pages: just print it - no need to save and separately
+   local web pages: just *print* it - no need to save and separately
    display a file! The server captures the "printed" output.
 
 This program can now serve as a template for your own CGI scripts:
@@ -306,16 +322,50 @@ tested earlier with a local web page. While this is the only Python
 code, you still need to create an output web page template, and
 refer to it in the parameter of ``fileToStr``.
 A further stripped down skeleton, with comments about needed changes is in
-``skeletonFor.cgi``.
+``skeletonFor.cgi``.  
 
-Now we have discussed both the top regular Python sequence, the bottom
-cgi sequence, and the common part in the middle, as shown in the following
-diagram.  In both cases input data gets processed into the content of a
+
+.. note 
+   The example parameters to ``processInput`` 
+   are NOT directly part of the boilerplate code:
+   You always need to list the actual data from
+   *your* main function that you want to pass,
+   when you call ``processInput`` in ``main``.
+   Then in the heading of the definition of ``processInput`` you should 
+   have corresponding formal parameters.
+
+Idle and .cgi Files
+    You can always start Idle a way that you have before, like on an existing .py file. 
+    Then deal with editing .cgi files from inside Idle.
+
+    For a Mac, See the Chapter 4 part of :doc:`pythononmac` for a way to start Idle on a .cgi file
+    easily, after some initial work the first time.
+
+    On Windows, the easiest thing may be to use IdleOnWindows.cmd.
+
+    You will want to open and save .cgi files in Idle.
+    Then dialog windows in both Windows and on a Mac have the same ideas,
+    but different labels.  There is a file type filter field for both.
+    It is labeled "Format" on a Mac. On Windows, for saving, 
+    it is labeled "Save as Type", and for opening a file, there is a field
+    it at the lower right, unlabeled. 
+
+    If you want a file ending in .cgi, change the filter field to All files (*).
+    For saving, be sure to enter the full file name you want, with the extension, .cgi.
+
+    If you forget and do not change the file filter when saving, a ".py" will be added to your file name.
+    Then you can rename it in an operating system file folder.
+
+
+In the following
+diagram, now we have discussed both the top regular Python sequence using the top, the bottom
+cgi specific sequence, and the common part in the middle, as shown.  
+In both cases input data gets processed into the content of a
 web page that goes to a browser.  For any major application the main work
 is in the processing in the middle.  Since that part is shared in both
 approaches, it can be tested with a simple Python program,
 before the starting and ending steps
-for the input and output flow are changed for the cgi client/server model.
+of the input and output flow are changed for the cgi client/server model.
 
 .. figure:: images/dynamicWebFlow.*
    :align: center
@@ -335,26 +385,31 @@ Errors in CGI Scripts
 ---------------------
 
 Before you start running your own CGI scripts on the local server,
-it is important to understand how different kinds of errors that
+it is important to understand how the different kinds of errors that
 you might make will be handled.
 
 If you write a regular Python program, even one that produces a web page,
-you can write the code and run it in Idle, and idle will display all the
-kinds of errors.
+you can write the code and run it in Idle, and 
+*Idle will display all the kinds of errors*.
 
 With a CGI script, you can still use Idle to write your code,
-but you cannot run the cgi code in Idle, and errors show up in three
+but *you cannot run the cgi code in Idle*, and errors show up in three
 different places, depending on their type:
 
 Syntax errors
     You are encouraged to check for syntax errors
-    *inside* Idle, by either going to the Run menu and selecting Check
-    Module, or by using the shortcut :kbd:`Alt-X`. If you fail to do this and
+    *inside* Idle, by using the menu sequence :guilabel:`Run -> Check Module`.
+    If you fail to do this and
     try running a script with a syntax error, the error trace appears
     in the *console* window that appears when you start the local
-    server. If you want an illustration, you might try changing
+    server -- better to have it fixed before then,
+    while you are still editing.
+    If you want an illustration, you might try changing
     adder.cgi, making an error like ``impor cgi``, and try using
     adder.html with the flawed script. (Then fix it and try again.)
+
+    If you find it in Idle, you can jump to the line where the error was detected.
+
 
 Execution Errors
     The error trace for execution errors is
@@ -382,12 +437,21 @@ Server Errors
 Logical Errors
     Since your output appears in the web browser,
     when you produced something legal but other than what you intended,
-    you see in the browser . If it is a formatting error, fix your
+    you see in the browser. If it is a formatting error, fix your
     output page template. If you get wrong answers, check your
     ``processInput`` function.
 
 Here is an outline for client/server program testing,
-emphasizing errors to be conscious of and avoid:
+emphasizing errors to be conscious of and avoid.  
+If you have problems, please actively check out this whole list:
+
+* You are encouraged to add your files into the examples www folder.
+  If you really want to work in a different folder, 
+  you will want to copy a number of support files into that folder:
+  CGIfix.py and localCGIServer,py, plus dumpcgi.cgi for testing
+  web forms separately.
+  For Windows: startServer.cmd.  On a Mac be sure to run CGIfix.py,
+  to generate the folder-specific version of cgiServerScript.
 
 * If you want an easy environment to test a fancy ``processInput`` function,
   embed it
@@ -399,10 +463,14 @@ emphasizing errors to be conscious of and avoid:
 * You can *code* a CGI script in idle, but *not run* it.
   Be sure to save it with the suffix ``.cgi``,
   *not* ``.py``.  Do *not run* it it Idle.  The only testing you can do in Idle
-  is for syntax, for instance using the :kbd:`Alt-X` keyboard shortcut.
+  is for syntax, using the menu sequence :guilabel:`Run -> Check Module` or
+  its keyboard shortcut.
 
 * At the end of your CGI script, make sure you include the standard
   code that catches execution errors.
+
+* Remember to run CGIfix.py in the same folder as a precaution to
+  clean things up, particularly with a new file on a Mac.
 
 * Make sure your local server is going, and that all the files you
   reference are in the same folder as the local server.
@@ -412,6 +480,12 @@ emphasizing errors to be conscious of and avoid:
   directly from your file system by mistake, it *will not cause an obvious error* -
   the dynamic actions will just not take place.  If you are not paying attention,
   this can happen and be very confusing!
+
+* If things do not work, remember that you want to check both the 
+  incorrect web page that was produced. 
+  Confirm that you have the try-catch boilerplate code at the end.
+  If that does not totally explain things, 
+  remember to check the server console window, too.
 
 We have not covered web forms yet, but rather than bite off too
 much at once, this is a good time to write your own first CGI
@@ -428,15 +502,17 @@ Quotient.cgi Exercise
 Make ``quotient.cgi`` take its input from a browser, rather than the
 keyboard. This means merging all the standard CGI code from
 ``adder.cgi`` and the ``processInput`` function code from your
-``quotientWeb.py``. You
-can keep the same browser data names, x and y, as in adder.cgi, so
+``quotientWeb.py``. 
+Please keep the same browser data names, x and y, as in adder.cgi, so
 the main method should not need changes from adder.cgi. Remember to
 test for syntax errors inside Idle, and to have the local web
 server running when you run the CGI script in your browser. Since
 we have not yet covered web forms, test your CGI script by entering
 test data into the URL in the browser, like by going to links
 http://localhost:8080/quotient.cgi?x=24&y=56 and
-http://localhost:8080/quotient.cgi?x=36&y=15. After trying these
+http://localhost:8080/quotient.cgi?x=36&y=15. 
+These URLs depend on you keeping the same data names, x and y, in the form.
+After trying these
 links, you can edit the numbers in the URL in the browser to see
 different results.
 
@@ -474,9 +550,8 @@ To play with it at a deeper level, open this same file, the www
 example ``commonFormFields.html``, in *Kompozer*. The static text in
 this page is set up as a tutorial on forms in Kompozer. Read the
 content of the page describing how to edit the overall form and
-each type of individual field. Textbooks such as the Analytical
-Engine give another discussion of some of the attributes associated
-with each field type. Read the static text about how to edit
+each type of individual field. 
+Read the static text about how to edit
 individual fields, and change some field parameters, save the file
 and reload it in your browser, and submit again. If you change the
 name or value attributes, they are immediately indicated in the
@@ -496,7 +571,7 @@ value after the equal sign gives the corresponding *value* for the
 attribute. The tag for many kinds of input fields is ``input``.
 Notice that each field includes ``name`` and ``value`` attributes.
 See that the 'x' and 'y' that are passed in the URL by the browser
-come from the names given in the HTML code for the corresponding
+come from the *name* attribute given in the HTML code for the corresponding
 fields!
 
 Kompozer and other web editors translate your menu selections into
@@ -514,7 +589,7 @@ in not very likely if you *only* change data in quoted value
 strings.
 
 The action URL is a property of the entire form. To edit it in
-Kompozer, right click inside the form, but *not* on any field
+Kompozer via the GUI, right click inside the form, but *not* on any field
 element, and select the bottom pop-up choice, Form Properties. Then
 you see a window listing the Action URL and you can change the
 value to the name of the CGI script that you want to receive the
@@ -524,6 +599,11 @@ your form separate from your CGI script. When you have tested that
 your web form has all the right names and initial values, you can
 change the action URL to your CGI script name (like quotient.cgi),
 and go on to test the combination of the form and the CGI script!
+
+If you are modifying a previous working form, it may be easier
+to use the source view, 
+and just replace the value of the form's action attribute
+to the new .cgi file name.
 
 
 Now we have discussed the last piece, web forms,
@@ -551,7 +631,8 @@ QuotientWeb Form Exercise
 is intelligible to a user and which supplies the necessary data to
 ``quotient.cgi``.
 
-Be sure to test the new form on your local server! Remember that
+Be sure to test the new form on your local server,
+using the URL http://localhost:8080/quotient.html. Remember that
 you must have the local server running first. You must have all the
 associated files in the same directory as the server program you
 are running, and you cannot just click on quotient.html in a file
@@ -569,7 +650,7 @@ your form ``dynamic.html``. Call your CGI script ``dynamic.cgi``. Call an
 output template ``dynamicTemplate.html``. Remember the details listed
 in the previous exercise to make the results work on localhost.
 After the server is started and you have all the files, go to
-http://localhost:8080/dynamic.html.
+http://localhost:8080/dynamic.html to test it a few times.
 
 
 :ref:`websummary` starts with the overall process for
@@ -579,6 +660,8 @@ creating dynamic web pages.
     
 More Advanced Examples
 ----------------------
+
+This is an optional section.
 
 One of the advantages of having a program running on a public
 server is that data may be stored centrally and augmented and
@@ -590,10 +673,8 @@ use simple text files on the server.
 The www example page ``namelist.html`` uses ``namelist.cgi`` to maintain a
 file ``namelist.txt`` of data submitted by users of the page. You can
 test the program with your local Python server. It is less
-impressive when you are the only one who can make changes! You may
-also try the copy on the public Loyola server,
-http://anh.cs.luc.edu/python/hands-on/3.1/examples/www/namelist.html.
-The local source code is documented for those who would like to
+impressive when you are the only one who can make changes! 
+The source code is documented for those who would like to
 have a look.
 
 You also may want to look at the source code of the utility script
@@ -653,37 +734,11 @@ is in the source code, and it is used repeatedly to generate multiple lines, eac
 a different size and price embedded into the format string
 from the program data.  These lines are joined
 together and placed as one entity into the html form template. 
-A similar procedure is done with the toppings and checkboxes.
+A similar procedure is done with the toppings and check-boxes.
 
 A further possible elaboration would be to also allow the
 restaurant manager to edit the size, cost and available topping data online,
 and store the data in a file rather than having the data hard coded in
 pizza.cgi, so if the manager runs out of a topping, she can remove
 it from the order form. This change would be a fairly elaborate
-project compared to the earlier exercises!
-
-.. put back when it works!
-
-    Final www examples are a pair of programs in real use in my
-    courses. To illustrate, I provide the sample survey,
-    ``pythonTutorialsurvey.html``.  Forms can be set up like this one
-    to link to the www example CGI script ``surveyFeedback.cgi``, which
-    will save any number of responses to the survey.  Unfortunately
-    this script does not work under Python 3+ as yet.  (My Python 2.6 version
-    should still work, but that is not in this version of the example code.)
-    When it is fixed,
-    you can do the survey at
-    http://localhost:8080/pythonTutorialsurvey.html. Run it several
-    times with different responses.                                                        
-    Assuming you get this to work, and you have responses,
-    you can start the Idle shortcut in the www example
-    directory and run the regular Python program that is in that directory,
-    ``readFeedback.py``.  At the prompt for a survey base name, enter *exactly*:
-
-        pythonTutorial
-
-    Then the program prints out all the survey feedback, grouped in two
-    different ways. It documents the use of a couple of modules not
-    introduced in this tutorial, but the rest just uses ideas from the
-    tutorial, including considerable emphasis on dictionaries and
-    string processing.
+project compared to the earlier exercises!  

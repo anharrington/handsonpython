@@ -108,7 +108,7 @@ Try in the *Shell*::
     first = fred
     first
 
-Now ``fred``, without the quotes, makes sense.
+There ``fred``, without the quotes, makes sense.
 
 There are more subtleties to assignment and the idea of a variable
 being a "name for" a value, but we will worry about them later,
@@ -119,6 +119,7 @@ variables are just numbers and strings.
    Idle; autocompletion 
    autocompletion in Idle
    Mac; Alt replacement in Idle
+   alt key
 
 **Autocompletion: A handy short cut.** Idle remembers all the
 variables you have defined at any moment. This is handy when
@@ -126,12 +127,19 @@ editing. Without pressing Enter, type into the Shell just  ::
 
    f
 
-Then *hold down* the :kbd:`Alt` key and press the :kbd:`/` key. This key
-combination is abbreviated :kbd:`Alt-/`.  (On a Mac, that may give you a funny character:
-In that case you need to hold down both the control key and the alt/option key when
-pressing the '/'.  This may hold in other places the Alt key is called for in Windows.)
+Windows users:
+   Then *hold down* the :kbd:`Alt` key and press the :kbd:`/` key. 
+   This key combination is abbreviated :kbd:`Alt-/`.  
 
-You should see ``f`` autocompleted to be ::
+Mac users:
+   The Windows key combination above may give you a funny character.
+   (If so backspace over it.)
+   In that case you need to hold down both the :kbd:`control` key and the 
+   :kbd:`alt/option` key when pressing the '/'.  
+   This may hold in other places in this tutorial, 
+   where the Alt key is called for in Windows.)
+
+Assuming you are following on the earlier variable entries to the Shell, you should see ``f`` *autocompleted* to be ::
 
    first
 
@@ -174,13 +182,13 @@ an identifier:
    are easy to recognize in Idle, because they are automatically
    colored orange. For the curious, you may *read* the full list::
 
-    False    class      finally   is         return 
-    None     continue   for       lambda     try  
-    True     def        from      nonlocal   while  
-    and      del        global    not        with  
-    as       elif       if        or         yield  
-    assert   else       import    pass  
-    break    except     in        raise 
+      False      await      else       import     pass
+      None       break      except     in         raise
+      True       class      finally    is         return
+      and        continue   for        lambda     try
+      as         def        from       nonlocal   while
+      assert     del        global     not        with
+      async      elif       if         or         yield
 
 There are also identifiers that are automatically defined in
 Python, and that you could redefine, but you probably should not

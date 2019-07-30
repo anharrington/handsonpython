@@ -6,59 +6,40 @@ The Python Interpreter and Idle, Part I
    folder for Python examples
 
 .. _Your-Python-Folder:
-    
+
+   
 Your Python Folder and Python Examples
 --------------------------------------------------------------
 
 First you need to set up a location to store your work and the
-example programs from this tutorial. If you are on a Windows
-computer, follow just *one* of the three choices below to find an
-appropriate place to download the example archive examples.zip, and
-then follow the later instructions to unzip the archive.
+example programs from this tutorial. You can put
+the folder for your Python programs most anywhere you like. However, for
+Chapter 4, it will be important that *none of the directories*
+*leading down to your Python folder contain any blanks in them*, in
+particular your home folder. 
 
-    Your Own Computer
-        If you are at your own computer, you can put
-        the folder for your Python programs most anywhere you like. For
-        Chapter 4, it will be important that *none of the directories*
-        *leading down to your Python folder contain any blanks in them.* In
-        particular in Windows, "My Documents" is a bad location. In
-        Windows you can create a directory in C: drive, like C:\\myPython.
-        You should have installed Python to continue.  This also means there is
-        a problem putting the folder under your home folder if you put a blank
-        in the login ID.
+The normal place for you to have my examples folder is under your home folder, 
+which has the same name as your Login ID. If you are just creating a login ID, 
+it will save some hassle in Chapter 4, if your login ID does 
+*not have a space in it*.
+"Andy" or "anh" or AndyHarrington" would be fine for me, but  
 
-    Your Flash Drive
-        If you do not have your own computer, or you
-        want to have your materials easily travel back and forth between
-        the lab and home, you will need a flash drive.
-        Plug your flash drive into the computer USB port.
-        Please Note: Flash drives are easy
-        for me to forget and leave in the computer. I have lost a few this
-        way. If you are as forgetful as I, you might consider a string from
-        the flash drive to something you will not forget to take with you.
-        Open *My Computer* (on the desktop) to see where the flash drive is
-        mounted, and open that drive.
+   "Andy Harrington" 
+   
+would bomb the server in Chapter 4.
+It is possible to do Chapter 4 with a folder outside your home folder,
+as discussed at the beginning of Chapter 4.
 
-    Temporary
-        If you (temporarily) do not have a flash drive and
-        you are at a Loyola lab computer: Open *My Computer* from the
-        desktop, and then select create a folder 
-        with your name or initials to make it easy for you to save and
-        remove things. Change to that folder. You should place the examples
-        archive here. You will need to save your work somehow before you
-        log off of the computer. You may want to email individual files to
-        yourself, or rezip the examples folder and send just the one
-        archive file to yourself each time until you remember a flash
-        drive!
+.. _examples-folder:
 
+Folder For My Examples
+-----------------------
 
-In Windows, after you have chosen a location for the archive,
-examples.zip, download it by *right* clicking on
-http://anh.cs.luc.edu/python/hands-on/3.1/examples.zip and
-selecting "Save As" or the equivalent on your browser and then
-navigate to save the archive to the chosen location on your
-computer. Note that the examples, like this version of the tutorial,
-are for Python 3.1 and later. There were major changes to Python in version
+Download and save
+http://anh.cs.luc.edu/python/hands-on/3.1/examples.zip. 
+
+Note that the examples, like this version of the tutorial,
+are for Python 3. There were major changes to Python in version
 3.0, making it incompatible with earlier versions.
 
 If you are using Python version 2.7 for some good reason, you should continue
@@ -66,7 +47,7 @@ with the older version of the tutorial. Go to
 http://anh.cs.luc.edu/python/hands-on and find the links to the
 proper version of the tutorial and examples.
 
-Once you have the archive, you need to extract the files. Make a file
+Once you have the examples.zip archive, you need to extract the files. Make a file
 browser window set to the directory where you put the zip file. Then:
 
 Windows
@@ -88,13 +69,6 @@ Mac
     *work from the regular directory* that holds the resulting unzipped
     files.
 
-.. warning::
-    Make sure that all the directories leading down to
-    your Python examples directory do not include any *spaces* in them.
-    This will be important in Chapter 4 for the local web server. In
-    particular, that means you should *not* place your folder under
-    "My Documents". A directory like C:\\hands-on or C:\\python would
-    be fine.
 
 You also have the option of downloading
 
@@ -110,11 +84,6 @@ You also have the option of downloading
    Some people also like the typography of this version on the web, too.
    It is hyperlinked like html version.
    
-The disadvantage of a local copy is that the tutorial may be
-updated online after you get your download. The change log file
-http://anh.cs.luc.edu/python/hands-on/3.1/changelog.html will show
-a summary of any major changes.
-
 .. index::
    example program; mad lib
    mad lib; first example program 
@@ -124,13 +93,20 @@ a summary of any major changes.
 Running A Sample Program
 ------------------------
 
-This section assumes Python, version at least 3.1, is already on
+This section assumes Python 3 is already on
 your computer. Windows does not come with Python. (To load Python
 see :ref:`getPython`.) 
 
 Before getting to the individual details of Python, you will run a
 simple text-based sample program. Find ``madlib.py`` in your Python
 folder, set up in :ref:`Your-Python-Folder`.
+
+.. note::
+    Different keyboards label the key for ending a line differently:
+    Windows keyboards may use :kbd:`Enter` while Mac keyboards use :kbd:`Return`.
+    The tutorial may intermix instructions to press :kbd:`Enter` or 
+    press :kbd:`Return`.
+    They both are intended to mean the key for ending a line.
 
 Options for running the program:
 
@@ -140,7 +116,7 @@ Options for running the program:
 -  In Windows, you can display your folder contents, and double
    click on madlib.py to start the program.
 
--  On a Mac, you can Ctrl-click on madlib.py in the Finder, select Open With,
+-  On a Mac, you can Control-click on madlib.py in the Finder, select Open With,
    and choose the Python Launcher for your Python 3 version.  When you are done with 
    the program, close the terminal window.
    
@@ -156,17 +132,6 @@ Options for running the program:
      
    If neither of these work, get help.
    
-You can also start idle from a Windows command window.  You will want the
-current directory to be where your programs are. You can enter the
-full path to Python, for instance::
-
-   C:\python34\python madlib.py
-
-or if python is in your system's path, you can skip the part before "python".
-In whatever manner you start the program, run it, responding to the
-prompts on the screen. Be sure to press the enter key at the end of
-each response requested from you.
-
 Try the program a second time and make different responses.
 
 .. match ]]
@@ -301,7 +266,8 @@ will be substituted later in the *format string* where each
         print(story)                                        28 
 
 
-22: *def* is short for **def**\ inition. This line is the heading of
+22: *def* is short for **def**\ inition of a function. 
+This line is the heading of
 a **def**\ inition, which makes the name ``tellStory`` becomes
 **def**\ ined as a short way to refer to the sequence of statements
 that start indented on line 23, and continue through line 28.
@@ -311,8 +277,9 @@ assignment statement. The computer will now associate the name
 ``userPicks`` with a new empty dictionary created by the
 Python code ``dict()``.
 
-24-26: ``addPick`` is the name for a sequence of instructions
-defined on lines 29-31 for adding another definition to a
+24-26: ``addPick`` is the name for a function defined by the
+sequence of instructions
+on lines 29-31, used to add another definition to a
 dictionary, based on the user's input. The result of these three
 lines is to add definitions for each of the three words ``animal``,
 ``food``, and ``city`` to the dictionary called ``userPicks``.
@@ -392,41 +359,19 @@ make it particularly easy to develop Python programs. Such a
 programming environment is *Idle*, and it is a part of the standard
 distribution of Python.
 
-Read the section that follows for your operating system:
+It is possible to open the Idle app directly:
 
-    Windows
-        (Assuming you already have Python installed.) Display
-        your Python folder. You should see icons for ``Idle34Shortcut``
-        for Python 3.4, ``Idle33Shortcut``
-        for Python 3.3, (and
-        maybe a similar icon with a version after 3.4 - *ignore* any
-        that do not correspond to *your* version of Python). Double
-        click on the appropriate shortcut, and an Idle window should
-        appear. After this the instructions are the same in any operating
-        environment. 
-        
-        **CAUTION**:  *Do not move the shortcut to your desktop.*  It should to be *in*
-        the folder with the examples.  Instead you might put a shortcut to this examples folder
-        on your desktop.
-        
-        An alternative for opening an existing Python program in Python 3+
-        is to go to an operating system directory window and use the
-        context menu that you get by right-clicking,
-        and select Open With Idle. This alternative depends on the
-        operating system being set up to recognize the Python file type, .py.  
+- Start a search:
 
-    Mac 
-        With OS X a simple approach is to
-        open Python files ending in .py into an Edit window
-        by selecting them directly in an operating system finder window.
-        From there you can create or open other files.
+  Windows: Press the Windows key or go to the start menu.
 
-        You should also be able to open Idle from Spotlight.
-        
-        There is more special Mac information in
-        http://anh.cs.luc.edu/python/hands-on//3.1/pythonOnMac.html.
+  Mac: open Spotlight (Command-spacebar).
 
-    Linux
+- Enter Idle in the search field.  Select the Idle app.
+
+
+If you have Linux:
+
         The approach depends on the installation. In Ubuntu, you
         should find Idle in the Programming section of the Applications
         menu. You are better starting idle from a
@@ -434,17 +379,10 @@ Read the section that follows for your operating system:
         You may need a special name set up to distinguish idle for versions
         2 and 3, for instance idle3 for version 3.X.
 
-.. not sure ??    
-    A simple approach is to open OS X the new version of Python and Idle should be in a
-    folder called MacPython 3.1, inside the Applications folder. It is
-    best if you can open a terminal window, change into your Python
-    folder as in :ref:``Your-Python-Folder``, and enter the command ::
-    idle
-    If the command is not recognized, you may need to include the full
-    file system path to the idle program.
-    
-The heading data when you open Idle shows the exact version, like 3.4.0.  
-You can see if it matches the latest current version of Python.
+We will discuss later that if you want to edit files, 
+this is *not* the best way to start Idle, 
+since the associated folder is not the one you want,
+but it works for now.
 
 .. index:: Idle; windows 
 
@@ -464,13 +402,14 @@ something like in Windows:
    :alt: image
    :width: 227.25 pt
    
-For more on the Edit Window, see :ref:`The-Idle-Editor`.
+For more on the Edit Window, see :ref:`The-Idle-Editor`. 
 
 .. index:: Idle; shell (and see shell in the index)
 
 If you see this Edit Window with its Run menu on top, go to the Run
 menu and choose PYTHON SHELL to open a Python Shell Window for now.
-Then you may close the Edit Window.
+Then you may close the Edit Window.  For now we will just be using the
+Python Shell.
 
 Either initially, or after explicitly opening it, you should now
 see the Python Shell window, with a menu like the following, though
@@ -481,14 +420,12 @@ the text may be slightly different:
    :alt: image
    :width: 211.5 pt
    
-Look at the Python Shell. ...
-
 In the Shell the last line should look like ::
 
     >>> 
 
 The ``>>>`` is the *prompt*,
-telling you Idle is waiting for you to type something. Continuing
+telling you Idle is waiting for *you* to type something. Continuing
 on the same line enter  ::
 
     6+3
@@ -505,3 +442,5 @@ You see Python does arithmetic. At the end you see a further prompt
 ``>>>`` where you can enter
 your next line.... The result line, showing ``9``, that is
 produced by the computer, does not start with ``>>>``.
+
+When we get to whole programs, we will use :ref:`The-Idle-Editor`.

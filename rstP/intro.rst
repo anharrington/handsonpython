@@ -46,7 +46,7 @@ Continuing on the same line enter ::
 
     type(7)
 
-Always remember to end with the Enter key. After the Shell
+Always remember to end with the :kbd:`Return` (or Enter) key. After the Shell
 responds, you should see something like ::
 
     >>> type(7) 
@@ -54,14 +54,13 @@ responds, you should see something like ::
     >>>  
 
 
-In the result, ``int`` is short for integer. The word *class* is
+In the result, ``int`` is the way Python abbreviates integer. The word *class* is
 basically a synonym for type in Python. 
 
 Note that
 the line with the value *produced* by the shell does not start with
 ``>>>`` and appears at the left margin. Hence you can distinguish
-what you type (after the ``>>>`` prompt) from what the computer
-responds.
+what the computer responds from what you type (after the ``>>>`` prompt).
 
 At the end you see a
 further prompt where you can enter your next line....
@@ -93,7 +92,7 @@ than string. Enter ::
     type([1, 2, 3])
 
 Strings and lists are both sequences of parts (characters or
-elements). We can find the length of that sequence with another
+elements). We can find the **length** of that sequence with another
 function with the abbreviated name ``len``. Try both of the
 following, separately, in the *Shell*::
 
@@ -126,11 +125,13 @@ following, one at a time, in the *Shell*::
     str(23) 
     int('125') 
 
+Note the presence and absence of quotes.
+
 .. index:: shell; copy line
    Idle; copy line in shell
 
 *An often handy Shell feature*: an earlier Shell line may to copied
 and edited by clicking anywhere in the previously displayed line
-and then pressing the :kbd:`Enter` key. For instance you should have entered
+and then pressing the :kbd:`Return` (or Enter) key. For instance you should have entered
 several lines starting with ``len``. click on any one, press
-:kbd:`Enter`, and edit the line for a different test.
+:kbd:`Return`, and edit the line for a different test.

@@ -37,7 +37,7 @@ This function is bound both logically, and as we see in the new
 notation, also syntactically. One way to think about it is that
 each type of data knows operations (methods) that can be applied to
 it. The expression ``s.upper()`` calls the method ``upper`` that is
-bound to the string ``s`` and returns a *new* uppercase string
+bound to the string ``s`` and *returns* a *new* uppercase string
 result based on ``s``.
 
 Strings are immutable, so no string method can change the original
@@ -194,8 +194,6 @@ indices:
 +-----------+----+----+----+----+----+----+----+----+
 | index     |  0 | 1  |  2 |  3 |  4 |  5 |  6 | 7  |
 +-----------+----+----+----+----+----+----+----+----+
-| index     |  0 | 1  |  2 |  3 |  4 |  5 |  6 | 7  |
-+-----------+----+----+----+----+----+----+----+----+
 
 Each index is associated with a character, and you reference the
 individual characters much like in a dictionary. Try the following.
@@ -331,13 +329,13 @@ that produces ``'gra'``.
 A useful string method that uses the ideas of indices and slices is
 ``find``.
 
-Syntax options for ``find``:
+Syntax options for ``find`` method with a string *s*:
 
     | *s*\ ``.find(``\ *sub*) 
     | *s*\ ``.find(``\ *sub*, *start*) 
     | *s*\ ``.find(``\ *sub*, *start*, *end*) 
 
-Return the integer index in the string *s* of the beginning of
+Return the integer index in the string *s* of the beginning of the
 first complete occurrence of the substring *sub*. If *sub* does not
 appear inside s, return -1. The value -1 would be an impossible
 result if ``sub`` were found, so if -1 is returned, *sub* must
@@ -399,6 +397,10 @@ the type created, you can also use the type name. Try in the
 
     dir(str) 
     help(str.capitalize) 
+
+In the help documentation for a function with one or more parameters,
+you may see what looks like a final parameter ``/``. Ignore it.
+It documents a technical restriction on parameters. It is not actually a parameter.
 
 .. index::
    list; [ ] index + [ : ] slice
@@ -559,7 +561,7 @@ check that you understand the basic syntax to accomplish the
 different individual tasks: Indicate the proper syntax using a
 Python function or operation will allow you to accomplish each
 task. Invent appropriate variable names for the different parts.
-This is not complete instructions! the idea is to make sure you
+These are not complete instructions! The idea is to make sure you
 know the basic syntax to use in all these situations. See the
 questions after the list to help you put together the final
 program.
@@ -606,10 +608,8 @@ are discussed later in :ref:`More-String-Methods`.
 If you want to reach a
 systematic reference from inside Idle, go to
 :menuselection:`Help --> Python Docs --> Library Reference`,
-and (for Python 3.4 at least) Section 4 Built-in Types, and then
-Section 4.7.1, String Methods. (This depends on you being
-attached to the Internet, or having idle configured to look at a
-local copy of the official Python documentation.) Many methods use
+and find the section Built-in Types, and then the subsection for type str.
+Many methods use
 features we have not discussed yet, but currently accessible
 methods are ``capitalize``, ``title``, ``strip``, ``rfind``, ....
 

@@ -40,7 +40,7 @@ with an arbitrary identifier, the specific symbol ``=``, and an expression.
 I try to make the parts that are not verbatim to be
 descriptive of the expected use.
 
-We will use these conventions shortly in the discussion of function
+I will use these conventions shortly in the discussion of function
 syntax, and will continue to use the conventions throughout the
 tutorial.
 
@@ -576,7 +576,7 @@ Similarly modify :file:`quotientformat.py` from
 as ``quotientProb.py``.
 You should create a function ``quotientProblem`` with numerical
 parameters.  Like in all the earlier versions, it should print a full
-sentence with input, quotient, and remainder.
+sentence containing the inputs, quotient, and remainder.
 The ``main`` method in the new program
 should test the quotientProblem function
 on several sets of literal values, and also test the function with
@@ -598,8 +598,8 @@ Returned Function Values
     :math:`$3^{2}+4^{2}=25$`
 
 
-You probably have used mathematical functions in algebra class, but
-they all had calculated values associated with them. For instance
+You probably have used mathematical functions in algebra class:  
+They all had calculated values associated with them. For instance
 if you defined 
 
    f(x)=x\ :sup:`2`
@@ -700,8 +700,8 @@ Details of the execution:
    ``'Harrington, Andrew'``
 
 Compare ``return2.py`` and ``addition5.py``, from the previous
-section. Both use functions. Both print, but where the printing *is
-done* differs. The function ``sumProblem`` prints directly inside
+section. Both use functions. Both print, but where the printing 
+*is done* differs. The function ``sumProblem`` prints directly inside
 the function and returns nothing explicitly. On the other hand
 ``lastFirst`` does not print anything but returns a string. The
 caller gets to decide what to do with the string, and above it is
