@@ -1,12 +1,18 @@
 #! /bin/bash
 
 cd ~/handsonpython/examples
+rm sample*.txt
 rm www/*.txt
 rm -R __pycache__
 rm -R www/__pycache__
-echo Removed .txt files in examples/www
+rm www/cgiServerScript
+rm www/tempBrowseLocal.html
+echo Removed .txt files, cgiServerScript, tempBrowseLocal.html in examples/www
 
 rsync -avh   * ../wmirror/python/hands-on/3.1/examples/
+echo examples to wmirror
 cd ~/wmirror/python/hands-on/3.1/examples/
-zip ../examples.zip * www/* -x www/tempBrowseLocal.html
+rm ../examples.zip
+zip ../examples.zip * www/* 
+echo remade examples.zip in wmirror
 

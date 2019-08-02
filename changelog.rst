@@ -1,5 +1,24 @@
-Hands-on Python Tutorial 3.X Major Change Log
+Hands-on Python Tutorial 3 Major Change Log
 ---------------------------------------------
+
+July 29, 2019
+~~~~~~~~~~~~~~~~~~
+
+- Major review of the tutorial, creating version 2
+- Added appendices for OS specific data, and for a debugging intro
+- Removed lot of obsolete material on instalation, Idle, OS's.
+- Elaborated a large number of explanations that had caused 
+  problems in the past.
+- Added paragraphs for ``for``, ``if``, ``while`` 
+  on thinking of the English
+  phrases that would suggest those compound statements.
+- In the section on string formatting with **locals(),
+  added the shorter alternate with f-strings.
+- Have a new file to start Idle on Windows in the current folder.
+- Did *not* change the numbering and names of sections and
+  homework exercises (except replaced one subsection, 1.9.2,
+  on a Python 3.3 bug, shifting some of the info on Idle editing).
+
 
 June 5. 2014
 ~~~~~~~~~~~~~~~~~~

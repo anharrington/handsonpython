@@ -2,15 +2,10 @@
 
 cd ~/handsonpython/
 rsync -avh   build/html/* ../wmirror/python/hands-on/3.1/handsonHtml/
-rsync -avh   pythonOnMac.html ../wmirror/python/hands-on/3.1/
-rsync -avh   pythonOnWindows.html ../wmirror/python/hands-on/3.1/
 rsync -avh   changelog.html ../wmirror/python/hands-on/3.1/
-rsync -avh   debugNotes/* ../wmirror/python/hands-on/3.1/debugNotes
+rsync -avh   index.html ../wmirror/python/hands-on/3.1/
 
-# cp build/latex/Hands-onPythonTutorial.pdf ../wmirror/python/hands-on/3.1/
-rm rst.zip
-zip rst.zip rstP/*.rst rstP/conf.py rstP/images/*.png
-cp rst.zip ../wmirror/python/hands-on/3.1/
+cp build/latex/Hands-onPythonTutorial.pdf ../wmirror/python/hands-on/3.1/
 
 cd ../wmirror/python/hands-on/3.1/
 rm handsonHtml.zip
